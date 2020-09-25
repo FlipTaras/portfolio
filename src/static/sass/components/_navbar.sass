@@ -1,0 +1,53 @@
+.navbar
+    position: fixed
+    top: 0
+    left: 0
+    height: 100vh
+    width: 4vw
+    background-color: black
+    &__container
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    &__elementContainer
+
+
+                        
+    &__element
+        text-decoration: none
+        margin-bottom: 5rem
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: center
+
+
+        &:hover
+            .navbar__text
+                opacity: 1
+            .navbar__icon
+                opacity: .7
+                filter: blur(2px)
+
+    &__icon
+        color: grey
+        font-size: 2.5rem
+        transition: all .2s ease  
+        &--active
+            color: rgba(0, 253, 232, .8)
+
+    &__text
+        opacity: 0
+        position: absolute
+        font-size: 1.1rem
+        color: rgba(0, 253, 232, .8)
+        text-transform: uppercase
+        transition: all .2s ease
+        pointer-events: none
+
+    &__logo
+        height: 7rem
+        width: 7rem
+        margin: 2rem 0 10rem
+

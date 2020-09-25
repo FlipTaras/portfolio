@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router";
+import Loader from "./components/Loader";
+import FrontPage from "./pages/FrontPage";
+import AboutPage from "./pages/AboutPage";
+import Navbar from "./components/Navbar";
+import { connect } from "react-redux";
+import { setLoading } from "./static/store/actions";
+
+const mapActionToProps = {
+  setLoading,
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar />
+      <Loader />
+      <Switch>
+        <Route path="/" exact component={FrontPage} />
+        <Route path="/about" exact component={AboutPage} />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+export default connect(null, mapActionToProps)(App);
