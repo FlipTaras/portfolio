@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setLoading } from "../static/store/actions";
+import CoffeeImage from "../static/images/Coffee.svg";
 
 const mapActionToProps = {
   setLoading,
@@ -11,6 +12,8 @@ export default connect(
   mapActionToProps
 )(({ setLoading }) => {
   return (
-    <div style={{ backgroundColor: "black", height: "100vh" }}>About Page</div>
+    <section className="aboutPage">
+      <img className="coffeImage" src={CoffeeImage} alt="coffe" />
+    </section>
   );
 });

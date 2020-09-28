@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(({ loading }) => {
   const refWrapper = useRef(null);
   const refContent = useRef(null);
+
   useEffect(() => {
     const initial = refWrapper.current.classList.value.includes(
       "loader__wrapper--initial"

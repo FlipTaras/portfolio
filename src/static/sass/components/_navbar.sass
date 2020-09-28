@@ -3,16 +3,22 @@
     top: 0
     left: 0
     height: 100vh
-    width: 4vw
-    background-color: black
+    width: 5vw
+    background-color: #181818
+    z-index: 1000
+    @include responsive(ipadPro-portrait)
+        display: none
+    @include responsive(900)
+        display: none
+
     &__container
         display: flex
         flex-direction: column
         align-items: center
+        height: 100vh
 
-    &__elementContainer
-
-
+    &__linksContainer
+        height: 55%
                         
     &__element
         text-decoration: none
@@ -21,7 +27,6 @@
         display: flex
         align-items: center
         justify-content: center
-
 
         &:hover
             .navbar__text
@@ -34,9 +39,22 @@
         color: grey
         font-size: 2.5rem
         transition: all .2s ease  
+        pointer-events: none
         &--active
             color: rgba(0, 253, 232, .8)
 
+    &__link
+        color: grey
+        font-size: 2rem
+        transition: all .2s ease  
+        display: flex
+        flex-direction: column
+        text-decoration: none
+        margin-bottom: 2rem
+        &:hover
+            color: rgba(0, 253, 232, .5)
+            transform: scale(1.5)
+            
     &__text
         opacity: 0
         position: absolute
@@ -45,9 +63,16 @@
         text-transform: uppercase
         transition: all .2s ease
         pointer-events: none
+        font-family: 'Gotham Medium'
+
+    &__logoContainer
+        height: 30%
 
     &__logo
         height: 7rem
         width: 7rem
-        margin: 2rem 0 10rem
-
+        margin-top: 2rem
+        pointer-events: none
+    
+    &__links
+        height: 15%

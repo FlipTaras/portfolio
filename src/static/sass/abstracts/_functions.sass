@@ -1,0 +1,86 @@
+@mixin responsive($breakpoint) 
+
+    @if $breakpoint == smallphone-landscape 
+        @media only screen and (max-width: 36em) and (orientation: landscape) // 320px --> 600 / 16
+            @content
+
+    @if $breakpoint == smallphone 
+        @media only screen and (max-width: 20em)  // 320px --> 600 / 16
+            @content
+
+    @if $breakpoint == 320-landscape // 320px
+        @media only screen and (max-height: 20em) and (orientation: landscape) // 320
+            @content
+
+    @if $breakpoint == 414-landscape // 414px
+        @media only screen and (max-height: 26em) and (orientation: landscape) // 414
+            @content
+
+    @if $breakpoint == 375-portrait // 375px
+        @media only screen and (max-width: 23.5em) and (orientation: portrait) // 375
+            @content
+
+    @if $breakpoint == 375-665
+        @media only screen and (max-width: 23.5em) and (max-height: 42em) // 375
+            @content
+
+    @if $breakpoint == phone 
+        @media only screen and (max-width: 37.5em)  // 600px
+            @content
+
+    @if $breakpoint == phone-landscape 
+        @media only screen and (max-width: 37.5em) and (orientation: landscape)   // 416px
+            @content
+
+    @if $breakpoint == 700  // 700 px
+        @media only screen and (max-width: 43.5em)
+            @content      
+
+    @if $breakpoint == 900  // 900 px
+        @media only screen and (max-width: 57em)
+            @content           
+
+    @if $breakpoint == tablet-landscape  // 1024 px
+        @media only screen and (max-width: 64em) and (orientation: landscape)
+            @content
+
+    @if $breakpoint == ipadPro  // 1024 px
+        @media only screen and (max-width: 64em) and (min-height: 65em )
+            @content
+
+
+    @if $breakpoint == ipadPro-portrait  // 1024 px
+        @media only screen and (max-width: 64em) and (min-height: 65em ) and (orientation: portrait)
+            @content
+
+    @if $breakpoint == tablet-portrait  // 1024 px // 768 px
+        @media only screen and (max-width: 64em) and (orientation: portrait)
+            @content
+
+    @if $breakpoint == 1200  // 1200 px
+        @media only screen and (max-width: 75em) 
+            @content
+
+    @if $breakpoint == 1280  // 1280 px
+        @media only screen and (max-width: 80em) 
+            @content
+
+    @if $breakpoint == 1366  // 1366 px
+        @media only screen and (max-width: 85.5em) 
+            @content
+    @if $breakpoint == 1366-portrait  // 1366 px
+        @media only screen and (max-width: 85.5em) and (orientation: portrait)
+            @content
+
+    @if $breakpoint == 1600  // 1600 px
+        @media only screen and (max-width: 100em) 
+            @content
+
+    @if $breakpoint == 1920  // 1930 px
+        @media only screen and (max-width: 120em) 
+            @content
+
+    @if $breakpoint == 2560  // 2560 px
+        @media only screen and (max-width: 160em) 
+            @content
+        
