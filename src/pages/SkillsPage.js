@@ -9,6 +9,16 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps)(({ loading }) => {
   const [lightMode, setLightMode] = useState(false);
+  const [touchDevice, setTouchDevice] = useState(null);
+
+  useEffect(() => {
+    try {
+      document.createEvent("TouchEvent");
+      setTouchDevice(true);
+    } catch (e) {
+      setTouchDevice(false);
+    }
+  }, []);
   const gitRef = useRef(null);
   const jsRef = useRef(null);
   const reduxRef = useRef(null);
@@ -78,7 +88,7 @@ export default connect(mapStateToProps)(({ loading }) => {
     <section className={skillPageClassNames}>
       <div className={innerContainerClassNames}>
         <div className={smalltextContainerBrightClassNames}>
-          <p>Hover to make me brighter</p>
+          <p>{touchDevice ? "Click" : "Hover"} to add some colors</p>
           <Icon icon="arrow" classNames={arrowClassNames} />
           <Icon
             reference={reduxRef}
@@ -96,11 +106,13 @@ export default connect(mapStateToProps)(({ loading }) => {
             classNames={arrowClassNames.concat(" skillsPage__arrow--light")}
           />
           {lightMode ? (
-            <p className="skillsPage__smalltextContainer__text">
+            <p className="skillsPage__smalltextContainer__textLightMode">
               Too much light? Toggle then
             </p>
           ) : (
-            <p>Too dark? Toggle then</p>
+            <p className="skillsPage__smalltextContainer__textDarkMode">
+              Too dark? Toggle then
+            </p>
           )}
         </div>
         <Icon
