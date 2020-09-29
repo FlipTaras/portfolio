@@ -1,0 +1,95 @@
+.titleComponent 
+
+    font-size: 10rem
+    margin-bottom: 5rem
+    opacity: .9
+    position: relative
+    color: #00fde8
+    width: 26rem
+    @include responsive(1920)
+        font-size: 8rem
+        width: 22rem
+    @include responsive(1600)
+        font-size: 6rem
+        width: 17rem
+    @include responsive(phone-landscape)
+        margin-bottom: 2rem
+    @include responsive(phone)
+        margin-bottom: 2rem
+    @include responsive(670-land)
+        width: 15rem
+        font-size: 5rem
+    @include responsive(smallphone-landscape)
+        font-size: 4rem
+        width: 11.5rem
+    @include responsive(414-portrait)
+        width: 15rem
+        font-size: 5rem
+    @include responsive(smallphone-portrait)
+        font-size: 4rem
+        width: 11.5rem
+        margin-bottom: 1rem
+    &--lightMode
+        color: #ec3a58
+        
+    &__tag
+        font-family: 'Comic Sans Ms'
+        position: absolute
+        font-size: 2rem
+        font-style: italic
+        color: grey
+        @include responsive(1920)
+            font-size: 1.6rem
+        @include responsive(670-land)
+            font-size: 1.1rem
+        @include responsive(414-portrait)
+            font-size: 1.1rem
+
+        &--topP
+            left: -4%
+            top: 0
+            @include responsive(1600)
+                left: -5%
+                top: -1%
+            @include responsive(phone)
+                left: -8%
+            @include responsive(smallphone-landscape)
+                left: -5%
+            @include responsive(414-portrait)
+                top: 1%
+        
+        &--bottomP
+            right: 4%
+            bottom: -4%
+            @include responsive(1600)
+                right: 2%
+                bottom: -7%
+            @include responsive(700)
+                right: unset
+                left: 20%
+                bottom: -5%
+            @include responsive(650)
+                left: 30%
+            @include responsive(670-land)
+                left: -6%
+                bottom: -7%
+
+            @include responsive(phone)
+                left: -10%
+                bottom: -5%
+            @include responsive(smallphone-landscape)
+                left: -6%
+                bottom: -10%
+
+
+        &--leftH1
+            top: 40%
+            left: -23%
+            @include responsive(1600)
+                left: -25%
+        
+        &--rightH1
+            top: 40%
+            right: -25%
+            @include responsive(1920)
+                right: -20%

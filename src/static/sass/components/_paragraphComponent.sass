@@ -1,0 +1,25 @@
+.paragraphComponent
+    font-size: 2.5rem
+    line-height: 1.5
+    font-family: 'Gotham Book'
+    width: 90rem
+    opacity: .9
+    position: relative
+    &--lightMode
+        color: black
+    @include responsive(1920)
+        font-size: 2rem
+        width: 75rem
+    @include responsive(1600)
+        font-size: 1.7rem
+        width: 60rem
+    @include responsive(700)
+        width: 100%
+    @include responsive(670-land)
+        font-size: 1.4rem
+    @include responsive(smallphone-landscape)
+        font-size: 1.1rem
+    @include responsive(414-portrait)
+        font-size: 1.4rem
+    @include responsive(smallphone-portrait)
+        font-size: 1.1rem

@@ -59,7 +59,7 @@ const Navbar = ({ loading, setLoading, history: { push } }) => {
           <Link
             className="navbar__element"
             onClick={delayRedirect}
-            to={{ pathname: "/contacts" }}
+            to={{ pathname: "/contact" }}
           >
             <i className="far fa-envelope navbar__icon"></i>
             <span className="navbar__text">Contact</span>

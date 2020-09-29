@@ -2,15 +2,24 @@ import React, { useEffect, useState, useRef } from "react";
 import Icon from "../components/Icon";
 import classnames from "classnames";
 import { connect } from "react-redux";
+import TitleComponent from "../components/TitleComponent";
+import ParagraphComponent from "../components/ParagraphComponent";
+import StaticArrowContainer from "../components/StaticArrowContainer";
+import ToggleLightModeComponent from "../components/ToggleLightModeComponent";
 
 const mapStateToProps = (state) => ({
   loading: state.page.loading,
+  lightMode: state.page.lightMode,
 });
 
-export default connect(mapStateToProps)(({ loading }) => {
-  const [lightMode, setLightMode] = useState(false);
+export default connect(mapStateToProps)(({ loading, lightMode }) => {
   const [touchDevice, setTouchDevice] = useState(null);
-
+  const gitRef = useRef(null);
+  const jsRef = useRef(null);
+  const reduxRef = useRef(null);
+  const sassRef = useRef(null);
+  const reactRef = useRef(null);
+  /* Check the touch screen device */
   useEffect(() => {
     try {
       document.createEvent("TouchEvent");
@@ -19,16 +28,43 @@ export default connect(mapStateToProps)(({ loading }) => {
       setTouchDevice(false);
     }
   }, []);
-  const gitRef = useRef(null);
-  const jsRef = useRef(null);
-  const reduxRef = useRef(null);
-  const sassRef = useRef(null);
-  const reactRef = useRef(null);
+
+  const paragraphText = [
+    {
+      text:
+        "The main area of my expretise is front end development (client side of the web)",
+    },
+    {
+      text:
+        "HTML, CSS (Sass), JS, building small and medium web apps with React.js, animations, responsive web apps, coding interactive layouts.",
+    },
+    {
+      text:
+        "Familiar knowledge of TypeScript, Git, Node.js, Express.js, MongoDB.",
+    },
+    {
+      text: "Visit my portfolio for work examples, contact me for more datails",
+    },
+  ];
 
   /* ClassNames for the dark mode */
+
   const arrowClassNames = classnames(
     "skillsPage__arrow",
     lightMode && "skillsPage__arrow--lightMode"
+  );
+  const arrowHoverClassNames = classnames(
+    "skillsPage__arrow",
+    "skillsPage__arrow--light",
+    lightMode && "skillsPage__arrow--lightMode"
+  );
+  const StaticToggleClassnames = classnames(
+    "staticArrowContainer__toggle",
+    lightMode && "staticArrowContainer__toggle--lightMode"
+  );
+  const staticBrightClassnames = classnames(
+    "staticArrowContainer__bright",
+    lightMode && "staticArrowContainer--lightMode"
   );
   const skillPageClassNames = classnames(
     "skillsPage",
@@ -42,28 +78,6 @@ export default connect(mapStateToProps)(({ loading }) => {
   const containerClassNames = classnames(
     "skillsPage__container",
     lightMode && "skillsPage__container--lightMode"
-  );
-  const titleClassNames = classnames(
-    "skillsPage__title",
-    lightMode && "skillsPage__title--lightMode"
-  );
-  const smalltextContainerBrightClassNames = classnames(
-    "skillsPage__smalltextContainer",
-    "skillsPage__smalltextContainer__bright",
-    lightMode && "skillsPage__smalltextContainer--lightMode"
-  );
-  const smalltextContainerToggleClassNames = classnames(
-    "skillsPage__smalltextContainer",
-    "skillsPage__smalltextContainer__toggle",
-    lightMode && "skillsPage__smalltextContainer__toggle--lightMode"
-  );
-  const circleClassNames = classnames(
-    "skillsPage__circle",
-    lightMode && "skillsPage__circle--lightMode"
-  );
-  const toggleClassNames = classnames(
-    "skillsPage__toggle",
-    lightMode && "skillsPage__toggle--lightMode"
   );
 
   useEffect(() => {
@@ -81,99 +95,67 @@ export default connect(mapStateToProps)(({ loading }) => {
       reactRef.current.classList.add("skillsPage__icon__react--animated");
     }, 3400);
   }, []);
-  const lightModeHandler = () => {
-    setLightMode((prevState) => !prevState);
-  };
+
   return (
     <section className={skillPageClassNames}>
       <div className={innerContainerClassNames}>
-        <div className={smalltextContainerBrightClassNames}>
-          <p>{touchDevice ? "Click" : "Hover"} to add some colors</p>
-          <Icon icon="arrow" classNames={arrowClassNames} />
+        <StaticArrowContainer
+          containerClassName={staticBrightClassnames}
+          icon="arrow"
+          iconOrder="2"
+          arrowClassNames={arrowClassNames}
+          text={`${touchDevice ? "Click" : "Hover"} to add some colors`}
+          textOrder="1"
+          childrenOrder="3"
+        >
           <Icon
             reference={reduxRef}
             icon="redux"
             classNames="skillsPage__icon skillsPage__icon__redux skillsPage__icon__redux--initial"
             hovered="skillsPage__icon__redux--hovered"
           />
-        </div>
-        <div onClick={lightModeHandler} className={toggleClassNames}>
-          <div className={circleClassNames}></div>
-        </div>
-        <div className={smalltextContainerToggleClassNames}>
+        </StaticArrowContainer>
+        <StaticArrowContainer
+          containerClassName={StaticToggleClassnames}
+          icon="arrow"
+          iconOrder="2"
+          textOrder="3"
+          childrenOrder="1"
+          arrowClassNames={arrowHoverClassNames}
+          textLight="Too much light? Toggle then"
+          textDark="Too Dark? Toggle then"
+        >
+          <ToggleLightModeComponent />
+        </StaticArrowContainer>
+        <div className="skillsPage__iconsContainer">
           <Icon
-            icon="arrow"
-            classNames={arrowClassNames.concat(" skillsPage__arrow--light")}
+            icon="js"
+            reference={jsRef}
+            classNames="skillsPage__icon skillsPage__icon__js skillsPage__icon__js--initial"
+            hovered="skillsPage__icon__js--hovered"
           />
-          {lightMode ? (
-            <p className="skillsPage__smalltextContainer__textLightMode">
-              Too much light? Toggle then
-            </p>
-          ) : (
-            <p className="skillsPage__smalltextContainer__textDarkMode">
-              Too dark? Toggle then
-            </p>
-          )}
+          <Icon
+            reference={reactRef}
+            icon="react"
+            classNames="skillsPage__icon skillsPage__icon__react skillsPage__icon__react--initial"
+            hovered="skillsPage__icon__react--hovered"
+          />
+          <Icon
+            reference={sassRef}
+            icon="sass"
+            classNames="skillsPage__icon skillsPage__icon__sass skillsPage__icon__sass--initial"
+            hovered="skillsPage__icon__sass--hovered"
+          />
+          <Icon
+            icon="git"
+            reference={gitRef}
+            classNames="skillsPage__icon skillsPage__icon__git skillsPage__icon__git--initial"
+            hovered="skillsPage__icon__git--hovered"
+          />
         </div>
-        <Icon
-          icon="js"
-          reference={jsRef}
-          classNames="skillsPage__icon skillsPage__icon__js skillsPage__icon__js--initial"
-          hovered="skillsPage__icon__js--hovered"
-        />
-        <Icon
-          reference={reactRef}
-          icon="react"
-          classNames="skillsPage__icon skillsPage__icon__react skillsPage__icon__react--initial"
-          hovered="skillsPage__icon__react--hovered"
-        />
-        <Icon
-          reference={sassRef}
-          icon="sass"
-          classNames="skillsPage__icon skillsPage__icon__sass skillsPage__icon__sass--initial"
-          hovered="skillsPage__icon__sass--hovered"
-        />
-        <Icon
-          icon="git"
-          reference={gitRef}
-          classNames="skillsPage__icon skillsPage__icon__git skillsPage__icon__git--initial"
-          hovered="skillsPage__icon__git--hovered"
-        />
         <div className={containerClassNames}>
-          <h1 className={titleClassNames}>
-            <span className="skillsPage__tag skillsPage__tag--leftH1">
-              {"<h1>"}
-            </span>
-            Skills
-            <span className="skillsPage__tag skillsPage__tag--rightH1">
-              {"</h1>"}
-            </span>
-          </h1>
-          <p className="skillsPage__text">
-            <span className="skillsPage__tag skillsPage__tag--topP">
-              {"<p>"}
-            </span>
-
-            <span>
-              The main area of my expretise is front end development (client
-              side of the web)
-            </span>
-            <span>
-              HTML, CSS (Sass), JS, building small and medium web apps with
-              React.js, animations, responsive web apps, coding interactive
-              layouts.
-            </span>
-            <span>
-              Familiar knowledge of TypeScript, Git, Node.js, Express.js,
-              MongoDB.
-            </span>
-            <span>
-              Visit my portfolio for work examples, contact me for more datails
-            </span>
-            <span className="skillsPage__tag skillsPage__tag--bottomP">
-              {"</p>"}
-            </span>
-          </p>
+          <TitleComponent title="Skills" tag="h1" />
+          <ParagraphComponent paragraphText={paragraphText} />
         </div>
       </div>
     </section>

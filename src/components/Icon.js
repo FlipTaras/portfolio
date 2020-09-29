@@ -1,6 +1,6 @@
 import React from "react";
 
-function Icon({ classNames, hovered, icon, reference }) {
+function Icon({ classNames, hovered, icon, reference, style }) {
   if (icon === "react") {
     return (
       <svg
@@ -94,6 +94,7 @@ function Icon({ classNames, hovered, icon, reference }) {
   } else if (icon === "arrow") {
     return (
       <svg
+        style={style}
         xmlns="http://www.w3.org/2000/svg"
         width="5rem"
         height="3rem"

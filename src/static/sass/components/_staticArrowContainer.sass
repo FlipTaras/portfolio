@@ -1,0 +1,99 @@
+.staticArrowContainer
+    color: white
+    font-family: 'Comic Sans Ms'
+    font-style: italic
+    position: absolute
+    opacity: 0
+    font-size: 2rem
+    display: flex
+    flex-direction: column
+    animation: show 2s 3.5s linear forwards
+    @include responsive(2560)
+        font-size: 1.3rem
+    @include responsive(tablet-landscape)
+        text-align: center
+    @include responsive(900)
+        text-align: center
+    @include responsive(phone)
+        font-size: 1rem
+    @include responsive(smallphone-landscape)
+        font-size: .7rem
+    @include responsive(smallphone-portrait)
+        font-size: .7rem
+
+    &__textLightMode
+        @include responsive(tablet-landscape)
+            width: 50%
+            margin: 0 auto
+        @include responsive(900)
+            width: 50%
+            margin: 0 auto
+        @include responsive(smallphone-landscape)
+            width: 100%
+    
+    &__textDarkMode
+        @include responsive(500)
+            width: 50%
+            margin: 0 auto
+                
+    &--lightMode
+        color: #ec3a58
+    &__bright
+        top: 5%
+        left: 30%
+    @include responsive(tablet-landscape)
+        left: 10%
+        top: 2%
+    @include responsive(900)
+        left: 10%
+        top: 2%
+    @include responsive(700)
+        top: 1%
+
+    &__toggle
+        position: fixed
+        top: 12%
+        right: 13%
+        left: unset
+        @include responsive(2560)
+            right: 11%
+        @include responsive(1920)
+            right: 13%
+        @include responsive(1600)
+            right: 10%
+        @include responsive(ipadPro-portrait)
+            right: 6%
+        @include responsive(tablet-landscape)
+            right: 2%
+        @include responsive(900)
+            right: 2%
+        @include responsive(500)
+            right: -6%
+            top: 5%
+        @include responsive(smallphone-landscape)
+            right: 2%
+
+    
+        &--lightMode
+            color: #ec3a58
+            right: 11%
+            @include responsive(2560)
+                right: 9%
+            @include responsive(1920)
+                right: 11%
+            @include responsive(1600)
+                right: 8%
+            @include responsive(1600)
+                right: 14%
+            @include responsive(ipadPro-portrait)
+                right: 8%
+            @include responsive(tablet-landscape)
+                right: 5%
+            @include responsive(900)
+                right: 5%
+            @include responsive(phone-landscape)
+                right: 5%
+            @include responsive(500)
+                right: -1%
+            @include responsive(smallphone-landscape)
+                right: 5%
