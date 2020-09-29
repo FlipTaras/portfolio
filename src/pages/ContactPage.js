@@ -1,13 +1,29 @@
 import React from "react";
+import ParagraphComponent from "../components/ParagraphComponent";
+import TitleComponent from "../components/TitleComponent";
+import Container from "../LayoutComponents/Container";
+import InnerContainer from "../LayoutComponents/InnerContainer";
+import Section from "../LayoutComponents/Section";
 
 export default () => {
+  const paragraphText = [
+    {
+      text: "Hello World",
+    },
+  ];
   return (
-    <section className="contactPage">
-      <div className="contactPage__container">
-        <div className="contactPage__innerContainer">
-          <h1>Contact me</h1>
-        </div>
-      </div>
-    </section>
+    <Section>
+      <InnerContainer>
+        <Container>
+          <TitleComponent
+            title="Contact"
+            tag="h1"
+            titleWidth="45rem"
+            smallTitleWidth="19rem"
+          />
+          <ParagraphComponent paragraphText={paragraphText} />
+        </Container>
+      </InnerContainer>
+    </Section>
   );
 };

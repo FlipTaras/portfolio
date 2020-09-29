@@ -51,7 +51,11 @@
 
     @if $breakpoint == 700  // 700 px
         @media only screen and (max-width: 43.5em)
-            @content      
+            @content   
+
+    @if $breakpoint == 800  // 800 px
+        @media only screen and (max-width: 50em)
+            @content    
 
     @if $breakpoint == 900  // 900 px
         @media only screen and (max-width: 57em)

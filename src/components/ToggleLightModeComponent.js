@@ -1,33 +1,29 @@
 import React from "react";
-import classnames from "classnames";
 import { connect } from "react-redux";
-import { toggleLightMode } from "../static/store/actions";
+import StaticArrowContainer from "./StaticArrowContainer";
+import ToggleElement from "./ToggleElement";
+import classnames from "classnames";
 
 const mapStateToProps = (state) => ({
   lightMode: state.page.lightMode,
 });
-
-const mapActionToProps = {
-  toggleLightMode,
-};
-export default connect(
-  mapStateToProps,
-  mapActionToProps
-)(({ toggleLightMode, lightMode }) => {
-  const circleClassNames = classnames(
-    "toggleDark__circle",
-    lightMode && "toggleDark__circle--lightMode"
+export default connect(mapStateToProps)(({ lightMode }) => {
+  const StaticToggleClassnames = classnames(
+    "staticArrowContainer__toggle",
+    lightMode && "staticArrowContainer__toggle--lightMode"
   );
-  const toggleClassNames = classnames(
-    "toggleDark__toggle",
-    lightMode && "toggleDark__toggle--lightMode"
-  );
-  const lightModeHandler = () => {
-    toggleLightMode();
-  };
   return (
-    <div onClick={lightModeHandler} className={toggleClassNames}>
-      <div className={circleClassNames}></div>
-    </div>
+    <StaticArrowContainer
+      containerClassName={StaticToggleClassnames}
+      icon="arrow"
+      iconOrder="2"
+      textOrder="3"
+      childrenOrder="1"
+      arrowClassNames={"arrow--toggle"}
+      textLight="Too much light? Toggle then"
+      textDark="Too Dark? Toggle then"
+    >
+      <ToggleElement />
+    </StaticArrowContainer>
   );
 });
