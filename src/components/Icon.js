@@ -6,40 +6,120 @@ const mapStateToProps = (state) => ({
   lightMode: state.page.lightMode,
 });
 
-function Icon({ classNames, hovered, icon, reference, style, lightMode }) {
+function Icon({ classNames, icon, reference, style, lightMode }) {
   const gitRef = useRef(null);
   const jsRef = useRef(null);
   const reduxRef = useRef(null);
   const sassRef = useRef(null);
   const reactRef = useRef(null);
+  const coffeeRef = useRef(null);
+  const bookRef = useRef(null);
+  const codeRef = useRef(null);
+
   useEffect(() => {
     setTimeout(() => {
       switch (icon) {
         case "redux":
-          reduxRef.current.classList.remove("icon__redux--initial");
-          reduxRef.current.classList.add("icon__redux--animated");
+          if (reduxRef.current) {
+            reduxRef.current.classList.remove("icon__redux--initial");
+            reduxRef.current.classList.add("icon__redux--animated");
+          }
           break;
         case "git":
-          gitRef.current.classList.remove("icon__git--initial");
-          gitRef.current.classList.add("icon__git--animated");
+          if (gitRef.current) {
+            gitRef.current.classList.remove("icon__git--initial");
+            gitRef.current.classList.add("icon__git--animated");
+          }
           break;
         case "js":
-          jsRef.current.classList.remove("icon__js--initial");
-          jsRef.current.classList.add("icon__js--animated");
+          if (jsRef.current) {
+            jsRef.current.classList.remove("icon__js--initial");
+            jsRef.current.classList.add("icon__js--animated");
+          }
           break;
         case "sass":
-          sassRef.current.classList.remove("icon__sass--initial");
-          sassRef.current.classList.add("icon__sass--animated");
+          if (sassRef.current) {
+            sassRef.current.classList.remove("icon__sass--initial");
+            sassRef.current.classList.add("icon__sass--animated");
+          }
           break;
         case "react":
-          reactRef.current.classList.remove("icon__react--initial");
-          reactRef.current.classList.add("icon__react--animated");
+          if (reactRef.current) {
+            reactRef.current.classList.remove("icon__react--initial");
+            reactRef.current.classList.add("icon__react--animated");
+          }
+          break;
+        case "coffee":
+          if (coffeeRef.current) {
+            coffeeRef.current.classList.remove("icon__coffeeIcon--initial");
+            coffeeRef.current.classList.add("icon__coffeeIcon--animated");
+          }
+          break;
+        case "codeIcon":
+          if (codeRef.current) {
+            codeRef.current.classList.remove("icon__codeIcon--initial");
+            codeRef.current.classList.add("icon__codeIcon--animated");
+          }
+          break;
+        case "book":
+          if (bookRef.current) {
+            bookRef.current.classList.remove("icon__bookIcon--initial");
+            bookRef.current.classList.add("icon__bookIcon--animated");
+          }
           break;
         default:
           break;
       }
     }, 3400);
   }, [icon]);
+
+  useEffect(() => {
+    switch (icon) {
+      case "redux":
+        reduxRef.current && lightMode
+          ? reduxRef.current.classList.add("icon--lightMode")
+          : reduxRef.current.classList.remove("icon--lightMode");
+        break;
+      case "js":
+        jsRef.current && lightMode
+          ? jsRef.current.classList.add("icon--lightMode")
+          : jsRef.current.classList.remove("icon--lightMode");
+        break;
+      case "react":
+        reactRef.current && lightMode
+          ? reactRef.current.classList.add("icon--lightMode")
+          : reactRef.current.classList.remove("icon--lightMode");
+        break;
+      case "sass":
+        sassRef.current && lightMode
+          ? sassRef.current.classList.add("icon--lightMode")
+          : sassRef.current.classList.remove("icon--lightMode");
+        break;
+      case "git":
+        gitRef.current && lightMode
+          ? gitRef.current.classList.add("icon--lightMode")
+          : gitRef.current.classList.remove("icon--lightMode");
+        break;
+      case "coffee":
+        coffeeRef.current && lightMode
+          ? coffeeRef.current.classList.add("icon--lightMode")
+          : coffeeRef.current.classList.remove("icon--lightMode");
+        break;
+      case "codeIcon":
+        codeRef.current && lightMode
+          ? codeRef.current.classList.add("icon--lightMode")
+          : codeRef.current.classList.remove("icon--lightMode");
+        break;
+      case "book":
+        bookRef.current && lightMode
+          ? bookRef.current.classList.add("icon--lightMode")
+          : bookRef.current.classList.remove("icon--lightMode");
+        break;
+      default:
+        break;
+    }
+  });
+
   if (icon === "react") {
     return (
       <svg
@@ -165,6 +245,53 @@ function Icon({ classNames, hovered, icon, reference, style, lightMode }) {
           d="M128.6 76.464c-.426.485 1.116 2.654 4.326 6.076 3.21 3.422 8.089 8.095 14.312 13.666 6.223 5.571 13.79 12.038 22.348 19.13 8.558 7.092 18.107 14.809 28.269 22.959a153.47 153.47 0 00-11.147.706c-13.648 1.361-26.242 4.407-37.465 8.045-11.223 3.638-21.082 7.85-29.362 11.816-18.945 9.747-30.533 16.547-29.918 17.879.614 1.332 13.308-3.071 33.02-11.157 8.762-3.896 19.044-8.519 30.464-12.955 11.42-4.435 23.973-8.665 37.267-11.337a151.134 151.134 0 0110.8-1.776c-9.801-9.386-19.119-18.242-27.632-26.146-8.513-7.903-16.222-14.855-22.779-20.51-6.557-5.657-11.963-10.018-15.843-12.824-3.88-2.806-6.233-4.058-6.659-3.573l-.001.001z"
           clipRule="evenodd"
         ></path>
+      </svg>
+    );
+  } else if (icon === "codeIcon") {
+    return (
+      <svg
+        className="icon icon__codeIcon icon__codeIcon--initial"
+        xmlns="http://www.w3.org/2000/svg"
+        x="0"
+        y="0"
+        enableBackground="new 0 0 320 320"
+        version="1.1"
+        viewBox="0 0 320 320"
+        xmlSpace="preserve"
+        ref={codeRef}
+      >
+        <path d="M292.697 19.995H27.303C12.223 19.995 0 32.219 0 47.299v163.822c0 15.079 12.223 27.304 27.303 27.304H133.79v24.7h-21.544c-10.185 0-18.439 8.255-18.439 18.44 0 10.184 8.255 18.44 18.439 18.44h95.508c10.186 0 18.439-8.256 18.439-18.44 0-10.185-8.254-18.44-18.439-18.44H186.21v-24.7h106.487c15.08 0 27.303-12.225 27.303-27.304V47.299c0-15.08-12.223-27.304-27.303-27.304zm-4.369 186.757H31.672V51.667h256.656v155.085z"></path>
+        <path d="M131.135 159.999a7 7 0 01-4.494-1.622L99.512 135.86a7.04 7.04 0 010-10.834l27.129-22.517a7.04 7.04 0 019.912.921 7.038 7.038 0 01-.92 9.913l-20.603 17.099 20.603 17.102a7.04 7.04 0 01-4.498 12.455zM188.867 159.999a7.04 7.04 0 01-4.5-12.456l20.602-17.102-20.602-17.099a7.04 7.04 0 018.993-10.834l27.127 22.517a7.034 7.034 0 010 10.834l-27.127 22.517a7.011 7.011 0 01-4.493 1.623zM147.072 182.146a7.038 7.038 0 01-6.764-8.999l25.859-89.324a7.043 7.043 0 018.721-4.805 7.044 7.044 0 014.805 8.722l-25.861 89.324a7.043 7.043 0 01-6.76 5.082z"></path>
+      </svg>
+    );
+  } else if (icon === "coffee") {
+    return (
+      <svg
+        className="icon icon__coffeeIcon icon__coffeeIcon--initial"
+        xmlns="http://www.w3.org/2000/svg"
+        id="Ebene_1"
+        enableBackground="new 0 0 256 256"
+        version="1.1"
+        viewBox="0 0 256 256"
+        xmlSpace="preserve"
+        ref={coffeeRef}
+      >
+        <style></style>
+        <path d="M183.2 83.3l-2.1-12.7c-.6-3.6-3.5-6.2-7-6.6l-4.6-18c-.9-3.5-4.1-6-7.8-6H94.2c-3.7 0-6.9 2.5-7.8 6.1L82 64c-3.6.4-6.5 3-7.1 6.6l-2.1 12.7c-.4 2.4 1.5 4.7 3.9 4.7h3.7l2.5 24h-.6c-2.4 0-4.2 2-4 4.4l7.6 80c.2 2.1 1.9 3.6 4 3.6h2.3l3.9 36.4c.2 2 1.9 3.6 4 3.6h56.8c2.1 0 3.8-1.6 4-3.6l3.6-36.4h1.5c2.1 0 3.8-1.6 4-3.6l7.6-80c.2-2.3-1.6-4.4-4-4.4h-.3l2.4-24h3.5c2.5 0 4.4-2.2 4-4.7zm-8.6-3.3H81.4l1.3-8h90.4l1.5 8zM94.2 48h67.5l4.1 16H90.2l4-16zm59.1 184h-49.6l-3.4-32h56.2l-3.2 32zm9.1-40H93.6l-6.8-72h82.4l-6.8 72zm2.9-80H91l-2.5-24h79.3l-2.5 24z"></path>
+        <path d="M120.1 165.2c4.3 2.7 7.4 6.5 7.9 8.1.4-1.6 3.8-5.4 7.9-8.2 4.4-3 11.2-5.5 11.1-12.5-.1-12.9-14.3-14.9-19-4.3-4.9-11.1-18.9-8.5-19 4.4-.1 7.1 6.7 9.7 11.1 12.5z"></path>
+      </svg>
+    );
+  } else if (icon === "book") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        x="0"
+        y="0"
+        viewBox="0 0 1000 1000"
+        className="icon icon__bookIcon icon__bookIcon--initial"
+        ref={bookRef}
+      >
+        <path d="M985.2 279.9c-1.3-2.1-22.6-39.2-65.3-77.3-42.3-37.9-108.1-77.3-194.6-77.3-86.6 0-151.7 39.5-193.3 77.6-12.8 11.8-23.6 23.4-32.5 34-9.1-10.7-20.4-22.4-33.5-34.3-42.5-37.9-108.2-77.3-194.8-77.3-86.6 0-151.6 39.5-193.3 77.6-41.8 38.2-62.2 75.4-63.4 77.6L10 297.6v559.3L77 874l.1.1c.9-1.9 19.1-33 52-61.9 33.3-29.2 79.7-56.1 141.9-56.3 64.1 0 112.9 28.9 147.2 59.4 16.9 15.1 30.2 30.4 38.6 41.7 4.4 5.7 7.4 10.4 9.5 13.4.9 1.6 1.7 2.8 2.1 3.6.2.3.4.6.4.7h.2l62.2-.6.1-.1v-.1c1.4-2.6 19.5-33.1 51.9-61.7 33.5-29.2 79.9-56.1 142-56.3 64.1 0 112.8 28.9 147.2 59.4 17 15.1 29.9 30.4 38.5 41.7 4.4 5.7 7.5 10.4 9.6 13.4 1 1.6 1.7 2.8 2.1 3.6.3.3.4.6.4.7h.1l66.8-17.8V297.6l-4.7-17.7zM271.1 684.5c-84.2 0-147.9 37.3-189.5 74.3V307.7c7.4-11.2 23.4-33.4 47.6-54.8 33.3-29.2 79.7-56.1 141.9-56.1 64.1 0 112.9 28.9 147.2 59.3 16.9 15.1 30.2 30.5 38.6 41.9 3 3.9 5.5 7.4 7.2 10.1v452.5c-42.2-37.5-107.4-76.1-193-76.1zm647.3 76c-42.5-37.5-107.6-76-193.1-76-84.1-.1-147.9 37.3-189.6 74.3V307.7c7.4-11.1 23.5-33.4 47.6-54.8 33.5-29.2 79.9-56.1 142-56.1 64.1 0 112.8 28.9 147.2 59.3 17 15.1 29.9 30.5 38.5 41.9 3.1 3.9 5.5 7.4 7.4 10.1v452.4z"></path>
       </svg>
     );
   } else {

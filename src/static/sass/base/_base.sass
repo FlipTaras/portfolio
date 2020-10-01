@@ -16,28 +16,66 @@ body
     sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
+    overflow-x: hidden
+    // overflow-y: hidden
 
 
 code 
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace
 
-.coffeImage
-    height: 10rem
-    width: 10rem
-    position: absolute
-    top: 20%
-    left: 40%
-    animation: cupfloat 1s ease infinite alternate
-    &:hover
-        animation: cupRotate .2s linear infinite alternate
-
 /* Section, container, inner container styles */
+.lineElement
+    position: absolute
+    bottom: 2%
+    @include responsive(ipadPro-portrait)
+        width: 103%
+        left: -3%
+    @include responsive(900)
+        width: 103%
+        left: -3%
+    @include responsive(phone-landscape)
+        display: none
+    @include responsive(700)
+        display: none
+
+    path 
+        stroke-dasharray: 2200
+        stroke-dashoffset: 2100;
+        stroke-miterlimit: 10
+        stroke-width: 4
+        stroke: rgba(255,255,255,.5)
+        fill: none
+        animation: dash 2s 2s ease forwards, dashleft 2s 4s ease forwards
+        
+
+        
+
+
+@keyframes dash
+    0%
+        stroke-dashoffset: 2100
+
+    50%
+        stroke-dashoffset: 800
+    
+    100%
+        stroke-dashoffset: 2100
+
+@keyframes dashleft
+    0%
+        stroke-dashoffset: -2200
+        
+    100%
+        stroke-dashoffset: -100
+        
+  
+  
+
 
 .section
     background-color: #1D1D1D
     height: 100vh
-    overflow-x: hidden
     @include responsive(phone-landscape)
         height: 200vh
     @include responsive(670-land)
@@ -54,8 +92,8 @@ code
     transition: all .2s ease
     transform: scale(.9)
     height: 100vh
-    opacity: .7
-    animation: scaleSection .2s 2s ease forwards
+    opacity: 0
+    animation: scaleSection .4s 2s ease forwards
     @include responsive(phone-landscape)
         height: 200vh
     @include responsive(670-land)
@@ -63,7 +101,7 @@ code
     @include responsive(smallphone-landscape)
         height: 140vh
     &--loading
-        animation: scaleSectionOut .2s ease forwards
+        animation: scaleSectionOut .4s ease forwards
 
 .container
     width: 60%

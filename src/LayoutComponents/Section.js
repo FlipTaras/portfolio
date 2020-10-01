@@ -6,10 +6,13 @@ const mapStateToProps = (state) => ({
   lightMode: state.page.lightMode,
 });
 
-export default connect(mapStateToProps)(({ children, lightMode }) => {
-  const sectionClassNames = classnames(
-    "section",
-    lightMode && "section--lightMode"
-  );
-  return <section className={sectionClassNames}>{children}</section>;
-});
+export default connect(mapStateToProps)(
+  ({ children, lightMode, classNames }) => {
+    const sectionClassNames = classnames(
+      "section",
+      lightMode && "section--lightMode",
+      classNames
+    );
+    return <section className={sectionClassNames}>{children}</section>;
+  }
+);

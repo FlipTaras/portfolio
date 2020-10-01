@@ -32,9 +32,17 @@
             width: 100%
     
     &__textDarkMode
+        @include responsive(tablet-landscape)
+            width: 50%
+            margin: 0 auto
+        @include responsive(900)
+            width: 50%
+            margin: 0 auto
         @include responsive(500)
             width: 50%
             margin: 0 auto
+        @include responsive(smallphone-landscape)
+            width: 100%
                 
     &--lightMode
         color: #ec3a58
@@ -66,12 +74,14 @@
         @include responsive(tablet-landscape)
             right: 2%
         @include responsive(900)
-            right: 2%
+            right: 8%
         @include responsive(500)
-            right: -6%
+            right: 4%
             top: 5%
+        @include responsive(375-portrait)
+            right: 0
         @include responsive(smallphone-landscape)
-            right: 2%
+            right: 7%
 
         &--lightMode
             color: #ec3a58
@@ -79,18 +89,18 @@
             @include responsive(2560)
                 right: 12%
             @include responsive(1920)
-                right: 11%
-            @include responsive(1600)
-                right: 12%
-            @include responsive(ipadPro-portrait)
                 right: 8%
+            @include responsive(ipadPro-portrait)
+                right: 3%
             @include responsive(tablet-landscape)
-                right: 5%
+                right: 0
             @include responsive(900)
                 right: 5%
             @include responsive(phone-landscape)
                 right: 5%
             @include responsive(500)
                 right: -1%
+            @include responsive(375-portrait)
+                right: -5%
             @include responsive(smallphone-landscape)
                 right: 5%

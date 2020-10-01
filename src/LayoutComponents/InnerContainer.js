@@ -6,10 +6,11 @@ const mapStateToProps = (state) => ({
   loading: state.page.loading,
 });
 
-export default connect(mapStateToProps)(({ children, loading }) => {
+export default connect(mapStateToProps)(({ children, loading, classNames }) => {
   const innerContainerClassNames = classnames(
     "innerContainer",
-    loading && "innerContainer--loading"
+    loading && "innerContainer--loading",
+    classNames
   );
   return (
     <div className={innerContainerClassNames}>

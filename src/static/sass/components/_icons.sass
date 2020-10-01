@@ -12,9 +12,7 @@
         margin-bottom: 1rem
         margin-top: -3rem;
         margin-left: 3rem;
-        @include responsive(smallphone-portrait)
-            margin-top: -1rem
-        @include responsive(smallphone-landscape)
+        @include responsive(phone)
             margin-top: -1rem
 
 .icon
@@ -23,7 +21,9 @@
     position: absolute
     top: 50%
     left: 50%
-    fill: black
+    fill: rgba(255,255,255,0.7)
+    &--lightMode
+        fill: rgba(0,0,0,0.7)
     @include responsive(1920)
         width: 10rem
         height: 10rem
@@ -39,7 +39,6 @@
     @include responsive(smallphone-portrait)
         width: 4rem
         height: 4rem
-
 
     &__git 
         transform: translateX(-10%) translateY(-250%)
@@ -58,7 +57,7 @@
             animation: show 1s 2.3s linear forwards
         &--animated
             opacity: 1
-            animation: hideShow 2s ease-in-out infinite alternate
+            animation: hideShow 2s .2s ease-in-out infinite alternate
         &--hovered
             fill: #F05133
 
@@ -74,7 +73,7 @@
             animation: show 2s 2.5s ease forwards
         &--animated
             opacity: 1
-            animation: hideShow 2s ease-in-out infinite alternate, 
+            animation: hideShow 2s .1s ease-in-out infinite alternate, 
         &--hovered
             fill: #CD6799
     &__redux
@@ -91,7 +90,7 @@
             animation: show 2s 2.8s ease forwards
         &--animated
             opacity: 1
-            animation: hideShow 2s ease-in-out infinite alternate
+            animation: hideShow 2s .4s ease-in-out infinite alternate
         &--hovered
             fill: #7248B6
     &__js
@@ -109,7 +108,7 @@
             animation: show 1s 3.1s ease forwards
         &--animated
             opacity: 1
-            animation: hideShow 2s ease-in-out infinite alternate
+            animation: hideShow 2s .8s ease-in-out infinite alternate
         &--hovered
             fill: #F0DB4F
     &__react
@@ -136,8 +135,10 @@
             right: 0
         @include responsive(900)
             top: unset
-            bottom: 10%
+            bottom: 9%
             right: 5%
+        @include responsive(phone-landscape )
+            bottom: 7%
         @include responsive(700)
             width: 15rem
             height: 15rem
@@ -162,3 +163,115 @@
             fill: #61DBFB !important
         &:hover
             animation: reactlogoRotate .5s linear infinite
+
+    &__codeIcon
+        transform: translateX(-400%) translateY(-320%)
+        &--initial
+            opacity: 0
+            animation: show 2s 2.5s ease forwards
+
+        &--animated
+            opacity: 1
+            animation: hideShow 2s .2s ease-in-out infinite alternate
+
+        @include responsive(1920)
+            transform: translateX(-350%) translateY(-300%)
+        @include responsive(1366)
+            transform: translateX(-300%) translateY(-300%)
+        @include responsive(1280)
+            transform: translateX(-400%) translateY(-350%)
+        @include responsive(phone-landscape )
+            transform: translateX(-300%) translateY(-300%)
+        @include responsive(800)
+            transform: translateX(-250%) translateY(-350%)
+        @include responsive(700)
+            transform: translateX(-250%) translateY(-400%)
+        @include responsive(670-land)
+            transform: translateX(-250%) translateY(-300%)
+        @include responsive(smallphone-landscape)
+            transform: translateX(-290%) translateY(-330%)
+        @include responsive(500)
+            transform: translateX(-250%) translateY(-500%)
+        @include responsive(smallphone-portrait)
+            transform: translateX(-250%) translateY(-600%)
+
+    &__coffeeIcon
+        top: 10%
+        right: 30%
+        left: unset
+        width: 14rem
+        height: 14rem
+        transform: rotate(-20deg) translateY(1rem)
+        &:hover
+            opacity: 1
+            animation: cupRotate .2s linear infinite alternate
+
+        &--initial
+            opacity: 0
+            animation: show 2s 2.8s ease forwards
+                
+        &--animated
+            opacity: 1
+            animation: cupfloat 1s ease infinite alternate
+
+        @include responsive(phone-landscape )
+            width: 10rem
+            height: 10rem
+        @include responsive(700)
+            height: 10rem
+            width: 10rem
+        @include responsive(phone)
+            top: 6%
+        @include responsive(smallphone-landscape)
+            width: 7rem
+            height: 7rem
+        @include responsive(500)
+            width: 8rem
+            height: 8rem
+        @include responsive(smallphone-portrait)
+            width: 5rem
+            height: 5rem
+
+
+
+
+
+    &__bookIcon
+        transform: translateX(-650%) translateY(0)
+        &--initial
+            opacity: 0
+            animation: show 2s 3s ease forwards
+                
+        &--animated
+            opacity: 1
+            animation: hideShow 1.5s .4s ease-in-out infinite alternate
+
+        @include responsive(1366)
+            transform: translateX(-500%) translateY(0)
+        @include responsive(1280)
+            transform: translateX(-500%) translateY(0)
+        @include responsive(ipadPro-portrait)
+            transform: translateX(-450%) translateY(0)
+        @include responsive(1200)
+            transform: translateX(-350%) translateY(200%)
+        @include responsive(800)
+            transform: translateX(-100%) translateY(200%)
+        @include responsive(700)
+            transform: translateX(-200%) translateY(340%)
+        @include responsive(670-land)
+            transform: translateX(-200%) translateY(200%)
+        @include responsive(smallphone-landscape)
+            transform: translateX(-200%) translateY(250%)
+        @include responsive(500)
+            transform: translateX(-200%) translateY(450%)
+    
+
+    
+
+
+
+
+
+
+
+

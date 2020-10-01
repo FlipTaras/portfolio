@@ -3,6 +3,7 @@ import * as actionType from "../actions";
 const initialState = {
   loading: false,
   lightMode: false,
+  activeNav: null,
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +12,8 @@ export default (state = initialState, action) => {
       return { ...state, loading: action.payload };
     case actionType.TOGGLE_LIGHTMODE:
       return { ...state, lightMode: !state.lightMode };
+    case actionType.SET_ACTIVE_NAV:
+      return { ...state, activeNav: action.payload };
     default:
       return state;
   }

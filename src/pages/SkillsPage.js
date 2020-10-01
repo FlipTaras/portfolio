@@ -38,7 +38,7 @@ export default connect(mapStateToProps)(({ loading, lightMode }) => {
     },
     {
       text:
-        "Familiar knowledge of TypeScript, Git, Node.js, Express.js, MongoDB.",
+        "Familiar knowledge of TypeScript, Git, Webpack, Node.js, Express.js, MongoDB.",
     },
     {
       text: "Visit my portfolio for work examples, contact me for more datails",

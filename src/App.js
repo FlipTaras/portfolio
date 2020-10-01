@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Switch } from "react-router";
+import React, { useEffect } from "react";
+import { Route, Switch, withRouter } from "react-router";
 import Loader from "./components/Loader";
 import FrontPage from "./pages/FrontPage";
 import AboutPage from "./pages/AboutPage";
@@ -7,13 +7,14 @@ import SkillsPage from "./pages/SkillsPage";
 import ContactPage from "./pages/ContactPage";
 import Navbar from "./components/Navbar";
 import { connect } from "react-redux";
-import { setLoading } from "./static/store/actions";
+import { setLoading, setActiveNav } from "./static/store/actions";
 
 const mapActionToProps = {
   setLoading,
+  setActiveNav,
 };
 
-function App() {
+function App({ history }) {
   return (
     <div className="app">
       <Navbar />
@@ -28,4 +29,4 @@ function App() {
   );
 }
 
-export default connect(null, mapActionToProps)(App);
+export default connect(null, mapActionToProps)(withRouter(App));

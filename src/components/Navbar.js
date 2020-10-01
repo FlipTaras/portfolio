@@ -1,21 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Link, NavLink, withRouter } from "react-router-dom";
-import { setLoading } from "../static/store/actions";
+import { Link, withRouter } from "react-router-dom";
+import { setLoading, setActiveNav } from "../static/store/actions";
 import Image from "../static/images/logo.png";
 
-const Navbar = ({ loading, setLoading, history: { push } }) => {
-  const [activeElement, setActiveElement] = useState(null);
+const Navbar = ({
+  activeNav,
+  setActiveNav,
+  setLoading,
+  history,
+  history: { push },
+}) => {
+  useEffect(() => {
+    setActiveNav(
+      document.getElementById(`${history.location.pathname.split("/")[1]}`)
+    );
+    if (activeNav) {
+      activeNav.classList.add("navbar__icon--active");
+    }
+    return () => {
+      if (activeNav) {
+        activeNav.classList.remove("navbar__icon--active");
+      }
+    };
+  }, [history.location.pathname, setActiveNav, activeNav]);
   const delayRedirect = (e) => {
     const to = e.target.getAttribute("href");
-    console.log(e.target);
-    if (activeElement) {
-      activeElement.classList.remove("navbar__icon--active");
-    }
-    setActiveElement(e.target.childNodes[0]);
-    if (e.target.childNodes[0]) {
-      e.target.childNodes[0].classList.add("navbar__icon--active");
-    }
+    // if (activeNav) {
+    //   activeNav.classList.remove("navbar__icon--active");
+    // }
+    // setActiveNav(e.target.childNodes[0]);
+    // if (e.target.childNodes[0]) {
+    //   e.target.childNodes[0].classList.add("navbar__icon--active");
+    // }
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
@@ -23,6 +40,7 @@ const Navbar = ({ loading, setLoading, history: { push } }) => {
       push(to);
     }, 1200);
   };
+
   return (
     <nav className="navbar">
       <div className="navbar__container">
@@ -37,7 +55,7 @@ const Navbar = ({ loading, setLoading, history: { push } }) => {
             onClick={delayRedirect}
             to={{ pathname: "/about" }}
           >
-            <i className="far fa-user navbar__icon"></i>
+            <i id="about" className="far fa-user navbar__icon"></i>
             <span className="navbar__text">About</span>
           </Link>
           <Link
@@ -45,7 +63,7 @@ const Navbar = ({ loading, setLoading, history: { push } }) => {
             onClick={delayRedirect}
             to={{ pathname: "/skills" }}
           >
-            <i className="far fa-lightbulb navbar__icon"></i>
+            <i id="skills" className="far fa-lightbulb navbar__icon"></i>
             <span className="navbar__text">Skills</span>
           </Link>
           <Link
@@ -53,7 +71,7 @@ const Navbar = ({ loading, setLoading, history: { push } }) => {
             onClick={delayRedirect}
             to={{ pathname: "/projects" }}
           >
-            <i className="far fa-eye navbar__icon"></i>
+            <i id="projects" className="far fa-eye navbar__icon"></i>
             <span className="navbar__text">Projects</span>
           </Link>
           <Link
@@ -61,7 +79,7 @@ const Navbar = ({ loading, setLoading, history: { push } }) => {
             onClick={delayRedirect}
             to={{ pathname: "/contact" }}
           >
-            <i className="far fa-envelope navbar__icon"></i>
+            <i id="contact" className="far fa-envelope navbar__icon"></i>
             <span className="navbar__text">Contact</span>
           </Link>
         </div>
@@ -82,8 +100,10 @@ const Navbar = ({ loading, setLoading, history: { push } }) => {
 };
 const mapStateToProps = (state) => ({
   loading: state.page.loading,
+  activeNav: state.page.activeNav,
 });
 const mapActionToProps = {
   setLoading,
+  setActiveNav,
 };
 export default connect(mapStateToProps, mapActionToProps)(withRouter(Navbar));

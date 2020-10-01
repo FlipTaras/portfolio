@@ -35,9 +35,9 @@ export default connect(mapStateToProps)(
         {textLight ? (
           <div style={{ order: textOrder }}>
             {lightMode ? (
-              <p className="staticArrowContainer__textDarkMode">{textDark}</p>
-            ) : (
               <p className="staticArrowContainer__textLightMode">{textLight}</p>
+            ) : (
+              <p className="staticArrowContainer__textDarkMode">{textDark}</p>
             )}
           </div>
         ) : (
