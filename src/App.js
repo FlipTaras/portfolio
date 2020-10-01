@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Switch, withRouter } from "react-router";
 import Loader from "./components/Loader";
 import FrontPage from "./pages/FrontPage";
@@ -14,10 +14,10 @@ const mapActionToProps = {
   setActiveNav,
 };
 
-function App({ history }) {
+function App() {
   return (
     <div className="app">
-      <Navbar />
+      <Navbar sidebar={false} />
       <Loader />
       <Switch>
         <Route path="/" exact component={FrontPage} />

@@ -19,15 +19,21 @@
 
     &__linksContainer
         height: 55%
+        @include responsive(900)
+            height: 45%
+
                         
     &__element
         text-decoration: none
-        margin-bottom: 5rem
         position: relative
         display: flex
         align-items: center
         justify-content: center
-
+        margin-bottom: 5rem
+        @include responsive(900)
+            margin-bottom: 2.5rem
+        @include responsive(phone-landscape)
+            margin-bottom: 1.5rem
         &:hover
             .navbar__text
                 opacity: 1
@@ -37,13 +43,14 @@
 
     &__icon
         color: grey
-        font-size: 2.5rem
         transition: all .2s ease  
         pointer-events: none
+        font-size: 2.5rem
+        @include responsive(900)
+            font-size: 2rem
         &--active,
             color: rgba(0, 253, 232, .8)
             
-
     &__link
         color: grey
         font-size: 2rem
@@ -68,12 +75,62 @@
 
     &__logoContainer
         height: 30%
+        @include responsive(900)
+            height: 20%
+        @include responsive(phone-landscape)
+            margin-top: -1rem
 
     &__logo
-        height: 7rem
-        width: 7rem
         margin-top: 2rem
         pointer-events: none
+        width: 7rem
+        height: 7rem
+        @include responsive(900)
+            height: 5rem
+            width: 5rem
+        @include responsive(phone-landscape)
+            margin-top: 1rem
     
     &__links
         height: 15%
+
+.sidebar 
+    display: none
+    height: 100vh
+    background-color: black
+    position: fixed
+    top: 0
+    left: 0
+    padding-top: 6rem
+    @include responsive(ipadPro-portrait)
+        display: block
+    @include responsive(900)
+        display: block
+
+/* Hamburger Icon */
+.hamburger
+    position: fixed
+    top: 2%
+    left: 0
+    color: rgba(255,255,255,.7)
+    z-index: 151
+    display: none
+    @include responsive(ipadPro-portrait)
+        display: block
+        left: 1%
+    @include responsive(900)
+        display: block
+    &--lightMode
+        color: rgba(0,0,0,.7)
+    &--active 
+
+/* Back Drop */
+
+.backdrop
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0,0,0,.5)
+    z-index: 145

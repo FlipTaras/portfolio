@@ -18,60 +18,16 @@ body
     -moz-osx-font-smoothing: grayscale
     overflow-x: hidden
     // overflow-y: hidden
+.overscroll-off
+    overflow: hidden !important
 
 
 code 
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace
 
+/* Layout */
 /* Section, container, inner container styles */
-.lineElement
-    position: absolute
-    bottom: 2%
-    @include responsive(ipadPro-portrait)
-        width: 103%
-        left: -3%
-    @include responsive(900)
-        width: 103%
-        left: -3%
-    @include responsive(phone-landscape)
-        display: none
-    @include responsive(700)
-        display: none
-
-    path 
-        stroke-dasharray: 2200
-        stroke-dashoffset: 2100;
-        stroke-miterlimit: 10
-        stroke-width: 4
-        stroke: rgba(255,255,255,.5)
-        fill: none
-        animation: dash 2s 2s ease forwards, dashleft 2s 4s ease forwards
-        
-
-        
-
-
-@keyframes dash
-    0%
-        stroke-dashoffset: 2100
-
-    50%
-        stroke-dashoffset: 800
-    
-    100%
-        stroke-dashoffset: 2100
-
-@keyframes dashleft
-    0%
-        stroke-dashoffset: -2200
-        
-    100%
-        stroke-dashoffset: -100
-        
-  
-  
-
 
 .section
     background-color: #1D1D1D
@@ -111,8 +67,6 @@ code
         width: 75%
     @include responsive(700)
         max-width: 85%
-
-
 
 /* FONTS */
     
