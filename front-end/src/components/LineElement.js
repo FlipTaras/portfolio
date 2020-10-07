@@ -1,6 +1,15 @@
 import React from "react";
+import classnames from "classnames";
+import { connect } from "react-redux";
 
-function Icon() {
+const mapStateToProps = (state) => ({
+  lightMode: state.page.lightMode,
+});
+function Icon({ lightMode }) {
+  const lineClassNames = classnames(
+    "lineElement",
+    lightMode && "lineElement--dark"
+  );
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +20,7 @@ function Icon() {
       version="1.1"
       viewBox="0 0 1920 160"
       xmlSpace="preserve"
-      className="lineElement"
+      className={lineClassNames}
     >
       <style></style>
       <path
@@ -22,4 +31,4 @@ function Icon() {
   );
 }
 
-export default Icon;
+export default connect(mapStateToProps)(Icon);

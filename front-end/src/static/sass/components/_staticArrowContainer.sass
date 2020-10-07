@@ -7,6 +7,7 @@
     font-size: 2rem
     display: flex
     flex-direction: column
+    z-index: 1000
     animation: show 2s 3.5s linear forwards
     @include responsive(2560)
         font-size: 1.3rem
@@ -59,28 +60,21 @@
         top: 1%
 
     &__toggle
-        position: fixed
-        top: 12%
-        right: 13%
+        position: absolute
+        right: 10%
+        top: 10%
         left: unset
         width: 20rem
-        @include responsive(1600)
+        z-index: 500
+        @include responsive(1280)
             right: 5%
-        @include responsive(tablet-landscape)
-            right: 2%
-        @include responsive(900)
-            width: 15rem
-        @include responsive(phone)
+        @include responsive(phone-landscape)
             right: 0
-        @include responsive(phone-landscape )
-            top: 0
-        @include responsive(500)
-            top: 0
-            right: -3rem
+        @include responsive(phone)
+            top: 4%
+            right: 0
             width: 12rem
-            top: 2%
         @include responsive(smallphone-portrait)
             width: 8rem
-            right: 0
         @include responsive(smallphone-landscape)
-            right: -4rem
+            top: 10%

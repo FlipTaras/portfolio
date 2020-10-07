@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import { connect } from "react-redux";
-import ToggleLightModeComponent from "../components/ToggleLightModeComponent";
+
 const mapStateToProps = (state) => ({
   loading: state.page.loading,
 });
@@ -12,10 +12,5 @@ export default connect(mapStateToProps)(({ children, loading, classNames }) => {
     loading && "innerContainer--loading",
     classNames
   );
-  return (
-    <div className={innerContainerClassNames}>
-      <ToggleLightModeComponent />
-      {children}
-    </div>
-  );
+  return <div className={innerContainerClassNames}>{children}</div>;
 });

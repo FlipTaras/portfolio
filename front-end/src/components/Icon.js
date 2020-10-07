@@ -121,6 +121,10 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
   });
 
   if (icon === "react") {
+    const reactClassNames = classnames(
+      "icon icon__react icon__react--initial",
+      classNames
+    );
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +134,7 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
         viewBox="0 0 841.9 595.3"
         xmlSpace="preserve"
         ref={reactRef}
-        className="icon icon__react icon__react--initial"
+        className={reactClassNames}
         onMouseEnter={() =>
           reactRef.current.classList.add("icon__react--hovered")
         }
@@ -144,6 +148,10 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
       </svg>
     );
   } else if (icon === "sass") {
+    const sassClassNames = classnames(
+      "icon icon__sass icon__sass--initial",
+      classNames
+    );
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +161,7 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
         viewBox="0 0 547.8 410.6"
         xmlSpace="preserve"
         ref={sassRef}
-        className="icon icon__sass icon__sass--initial"
+        className={sassClassNames}
         onMouseEnter={() =>
           sassRef.current.classList.add("icon__sass--hovered")
         }
@@ -180,12 +188,16 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
       </svg>
     );
   } else if (icon === "js") {
+    const jsClassNames = classnames(
+      "icon icon__js icon__js--initial",
+      classNames
+    );
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
         ref={jsRef}
-        className="icon icon__js icon__js--initial"
+        className={jsClassNames}
         onMouseEnter={() => jsRef.current.classList.add("icon__js--hovered")}
       >
         <path d="M224 508c-6.7 0-13.5-1.8-19.4-5.2l-61.7-36.5c-9.2-5.2-4.7-7-1.7-8 12.3-4.3 14.8-5.2 27.9-12.7 1.4-.8 3.2-.5 4.6.4l47.4 28.1c1.7 1 4.1 1 5.7 0l184.7-106.6c1.7-1 2.8-3 2.8-5V149.3c0-2.1-1.1-4-2.9-5.1L226.8 37.7c-1.7-1-4-1-5.7 0L36.6 144.3c-1.8 1-2.9 3-2.9 5.1v213.1c0 2 1.1 4 2.9 4.9l50.6 29.2c27.5 13.7 44.3-2.4 44.3-18.7V167.5c0-3 2.4-5.3 5.4-5.3h23.4c2.9 0 5.4 2.3 5.4 5.3V378c0 36.6-20 57.6-54.7 57.6-10.7 0-19.1 0-42.5-11.6l-48.4-27.9C8.1 389.2.7 376.3.7 362.4V149.3c0-13.8 7.4-26.8 19.4-33.7L204.6 9c11.7-6.6 27.2-6.6 38.8 0l184.7 106.7c12 6.9 19.4 19.8 19.4 33.7v213.1c0 13.8-7.4 26.7-19.4 33.7L243.4 502.8c-5.9 3.4-12.6 5.2-19.4 5.2zm149.1-210.1c0-39.9-27-50.5-83.7-58-57.4-7.6-63.2-11.5-63.2-24.9 0-11.1 4.9-25.9 47.4-25.9 37.9 0 51.9 8.2 57.7 33.8.5 2.4 2.7 4.2 5.2 4.2h24c1.5 0 2.9-.6 3.9-1.7s1.5-2.6 1.4-4.1c-3.7-44.1-33-64.6-92.2-64.6-52.7 0-84.1 22.2-84.1 59.5 0 40.4 31.3 51.6 81.8 56.6 60.5 5.9 65.2 14.8 65.2 26.7 0 20.6-16.6 29.4-55.5 29.4-48.9 0-59.6-12.3-63.2-36.6-.4-2.6-2.6-4.5-5.3-4.5h-23.9c-3 0-5.3 2.4-5.3 5.3 0 31.1 16.9 68.2 97.8 68.2 58.4-.1 92-23.2 92-63.4z"></path>
@@ -245,6 +257,45 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
           d="M128.6 76.464c-.426.485 1.116 2.654 4.326 6.076 3.21 3.422 8.089 8.095 14.312 13.666 6.223 5.571 13.79 12.038 22.348 19.13 8.558 7.092 18.107 14.809 28.269 22.959a153.47 153.47 0 00-11.147.706c-13.648 1.361-26.242 4.407-37.465 8.045-11.223 3.638-21.082 7.85-29.362 11.816-18.945 9.747-30.533 16.547-29.918 17.879.614 1.332 13.308-3.071 33.02-11.157 8.762-3.896 19.044-8.519 30.464-12.955 11.42-4.435 23.973-8.665 37.267-11.337a151.134 151.134 0 0110.8-1.776c-9.801-9.386-19.119-18.242-27.632-26.146-8.513-7.903-16.222-14.855-22.779-20.51-6.557-5.657-11.963-10.018-15.843-12.824-3.88-2.806-6.233-4.058-6.659-3.573l-.001.001z"
           clipRule="evenodd"
         ></path>
+      </svg>
+    );
+  } else if (icon === "arrow-straight") {
+    const arrowClassNames = classnames(
+      "arrow-straight",
+      lightMode && "arrow-straight--lightMode"
+    );
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        id="svg2"
+        x="0"
+        y="0"
+        enableBackground="new 0 0 252 99.1"
+        version="1.1"
+        viewBox="0 0 252 99.1"
+        xmlSpace="preserve"
+        className={arrowClassNames}
+      >
+        <style></style>
+        <g id="layer1" transform="translate(0 -552.36)">
+          <g id="g3083" transform="translate(-30.488 19.512)">
+            <path
+              id="path2997"
+              d="M71.7 581.9c0-2.8 43.9-5.4 98.1-5.8 54.2-.5 98.2 1.4 98.2 4.2 0 2.8-43.9 5.4-98.1 5.8-54.2.5-98.2-1.4-98.2-4.2z"
+              className="st0"
+            ></path>
+            <path
+              id="path3009"
+              d="M35.4 588.6c.2-1 2.7-1.5 6.9-1.3s10.1 1.1 16.9 3.2c5.6 1.7 11.7 4.3 17.7 7.7 5.2 3 9.9 6.3 13.8 9.6 4 3.3 7.2 6.7 9.7 9.7s4.3 5.6 5.3 7.6 1.3 3.3.7 3.8c-.5.5-1.8 0-3.6-1.1s-4.3-2.9-7.2-5.1c-3-2.2-6.5-4.8-10.4-7.5-4-2.7-8.4-5.5-13.2-8.2-5.6-3.2-11-5.8-15.9-8.1-6-2.7-11.2-4.7-14.9-6.4-3.8-1.7-5.9-3-5.8-3.9z"
+              className="st0"
+            ></path>
+            <path
+              id="path3009-4"
+              d="M34.8 579.9c-.2-1 2-2.2 5.7-3.8s8.9-3.7 14.9-6.4c4.9-2.2 10.4-4.9 15.9-8.1 4.8-2.7 9.2-5.5 13.2-8.2 4-2.7 7.5-5.3 10.4-7.5 3-2.2 5.4-4 7.2-5.1s3.1-1.6 3.6-1.1.3 1.8-.7 3.8-2.8 4.6-5.3 7.6-5.8 6.3-9.7 9.7-8.6 6.6-13.8 9.6c-6.1 3.4-12.2 6-17.7 7.7-6.8 2.1-12.7 3-16.9 3.2-4.1.1-6.6-.5-6.8-1.4z"
+              className="st0"
+            ></path>
+          </g>
+        </g>
       </svg>
     );
   } else if (icon === "codeIcon") {

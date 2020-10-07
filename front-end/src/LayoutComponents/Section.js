@@ -5,6 +5,7 @@ import Hamburger from "hamburger-react";
 import { toggleSideBar } from "../static/store/actions";
 import Backdrop from "../components/Backdrop";
 import Navbar from "../components/Navbar";
+import ToggleLightModeComponent from "../components/ToggleLightModeComponent";
 
 const mapStateToProps = (state) => ({
   lightMode: state.page.lightMode,
@@ -40,6 +41,7 @@ export default connect(
           direction="right"
         />
       </div>
+      <ToggleLightModeComponent />
       {children}
     </section>
   );

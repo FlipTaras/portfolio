@@ -19,7 +19,7 @@ export default connect(mapStateToProps)(({ lightMode }) => {
   const paragraphText = [
     {
       text:
-        "If you liked the projects I've made and think that I could bring the value for your company, or your project. Don't hesitate to contact me using the form below. ",
+        "If you like the projects I've made and think that I could bring the value for your company, or your project. Don't hesitate to contact me using the form below. ",
     },
   ];
   const [name, setName] = useState("");
@@ -36,7 +36,6 @@ export default connect(mapStateToProps)(({ lightMode }) => {
   useEffect(() => {
     if (loadingRequest && buttonRef.current) {
       buttonRef.current.classList.add("contactPage__sendButton--loading");
-      console.log(buttonRef.current.classList);
     } else {
       buttonRef.current.classList.remove("contactPage__sendButton--loading");
     }
@@ -60,7 +59,6 @@ export default connect(mapStateToProps)(({ lightMode }) => {
     if (showInfo) {
       infoRef.current.classList.add("contactPage__sendInfo--show");
     }
-    console.log("show info");
   }, [showInfo]);
   const preventSend = (e) => {
     e.preventDefault();
@@ -138,15 +136,30 @@ export default connect(mapStateToProps)(({ lightMode }) => {
     }
   };
 
+  const infoTextClassNames = classnames(
+    "contactPage__infoText",
+    lightMode && "contactPage__infoText--lightMode"
+  );
+
   return (
     <Section>
       <div ref={infoRef} className="contactPage__sendInfo">
         {sendSuccess ? (
-          <h1 className="contactPage__infoText contactPage__infoText--success">
+          <h1
+            className={classnames(
+              infoTextClassNames,
+              "contactPage__infoText--success"
+            )}
+          >
             I received your message, I will contact you back ASAP
           </h1>
         ) : (
-          <h1 className="contactPage__infoText contactPage__infoText--error">
+          <h1
+            className={classnames(
+              infoTextClassNames,
+              "contactPage__infoText--error"
+            )}
+          >
             Something went wrong, contact me directly on
             taras.shinkarenko@gmail.com
           </h1>
@@ -250,8 +263,8 @@ export default connect(mapStateToProps)(({ lightMode }) => {
             </button>
           </form>
         </Container>
+        <LineElement />
       </InnerContainer>
-      <LineElement />
     </Section>
   );
 });

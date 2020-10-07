@@ -30,7 +30,7 @@ export default connect(mapStateToProps)(({ loading, lightMode }) => {
   const paragraphText = [
     {
       text:
-        "The main area of my expretise is front end development (client side of the web)",
+        "The main area of my expretise is front-end development (client side of the web)",
     },
     {
       text:
@@ -41,7 +41,7 @@ export default connect(mapStateToProps)(({ loading, lightMode }) => {
         "Familiar knowledge of TypeScript, Git, Webpack, Node.js, Express.js, MongoDB.",
     },
     {
-      text: "Visit my portfolio for work examples, contact me for more datails",
+      text: "Visit my portfolio for work examples, contact me for more details",
     },
   ];
 

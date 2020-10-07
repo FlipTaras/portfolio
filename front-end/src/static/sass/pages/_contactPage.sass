@@ -2,12 +2,16 @@
     background-color: black
     height: 100vh
     background-color: #1D1D1D
+    @include responsive(phone)
+        height: 110vh
     &__title
         margin-bottom: 3rem
     &__container
         // margin-top: -2%
         @include responsive(1366)
             margin-top: -5%
+        @include responsive(phone)
+            margin-top: 15%
     &__paragraph
         margin-bottom: 2rem
 
@@ -83,6 +87,7 @@
         margin-left: auto
         cursor: pointer
         transition: all .2s ease
+        z-index: 1500
         &--lightMode
             border: 1px solid rgba(0,0,0,.5)
             color: rgba(0,0,0,.5)
@@ -120,7 +125,7 @@
 
     &__sendInfo
         position: fixed
-        top: -10%
+        top: -15%
         left: 50%
         transform: translateX(-50%) translateY(0)
         transition: all .5s ease
@@ -135,10 +140,13 @@
         padding: 1.2rem 1rem 1.2rem
         border-bottom-left-radius: 2rem
         border-bottom-right-radius: 2rem
+        &--lightMode
+            color: rgba(29, 29, 29, .5) !important
 
         &--success
             background-color: rgba(0, 253, 232, .7)
-            color: rgba(29, 29, 29, .9)
+            color: rgba(255,255,255,.9)
+
         &--error
             background-color: rgba(236, 58, 88, .7)
             color: rgba(255,255,255,.9)

@@ -5,15 +5,22 @@
         margin-top: 1rem
         height: 2rem
         width: 2rem
-    &--lightMode 
+    &--lightMode
         fill: black
     &--toggle
         transform: rotate(180deg)
         margin-bottom: 1rem
-        margin-top: -3rem;
-        margin-left: 3rem;
+        margin-top: -3rem
+        margin-left: 3rem
         @include responsive(phone)
             margin-top: -1rem
+
+.arrow-straight
+    fill: rgba(255,255,255,0.7)
+    width: 4rem
+    margin-right: 1rem
+    &--lightMode
+        fill: rgba(0,0,0,.7)
 
 .icon
     width: 15rem
@@ -40,7 +47,7 @@
         width: 4rem
         height: 4rem
 
-    &__git 
+    &__git
         transform: translateX(-10%) translateY(-250%)
         @include responsive(phone)
             transform: translateX(-10%) translateY(-400%)
@@ -50,7 +57,6 @@
             transform: translateX(40%) translateY(-400%)
         @include responsive(smallphone-portrait)
             transform: translateX(40%) translateY(-500%)
-
 
         &--initial
             opacity: 0
@@ -73,7 +79,7 @@
             animation: show 2s 2.5s ease forwards
         &--animated
             opacity: 1
-            animation: hideShow 2s .1s ease-in-out infinite alternate, 
+            animation: hideShow 2s .1s ease-in-out infinite alternate,
         &--hovered
             fill: #CD6799
     &__redux
@@ -151,7 +157,7 @@
             height: 11rem
         @include responsive(smallphone-portrait)
             width: 7rem
-            height: 7rem   
+            height: 7rem
 
         &--initial
             opacity: 0
@@ -209,7 +215,7 @@
         &--initial
             opacity: 0
             animation: show 2s 2.8s ease forwards
-                
+
         &--animated
             opacity: 1
             animation: cupfloat 1s ease infinite alternate
@@ -233,16 +239,12 @@
             width: 5rem
             height: 5rem
 
-
-
-
-
     &__bookIcon
         transform: translateX(-650%) translateY(0)
         &--initial
             opacity: 0
             animation: show 2s 3s ease forwards
-                
+
         &--animated
             opacity: 1
             animation: hideShow 1.5s .4s ease-in-out infinite alternate
@@ -265,14 +267,3 @@
             transform: translateX(-200%) translateY(250%)
         @include responsive(500)
             transform: translateX(-200%) translateY(450%)
-    
-
-    
-
-
-
-
-
-
-
-

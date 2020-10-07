@@ -3,6 +3,14 @@ export const TOGGLE_LIGHTMODE = "TOGGLE_LIGHTMODE";
 export const SET_ACTIVE_NAV = "SET_ACTIVE_NAV";
 export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
 export const SET_SIDEBAR = "SET_SIDEBAR";
+export const SET_NAV_INFOELEMENTS = "SET_NAV_INFOELEMENTS";
+
+export const setNavInfoElements = (payload) => (dispatch) => {
+  dispatch({
+    type: SET_NAV_INFOELEMENTS,
+    payload,
+  });
+};
 
 export const setSideBar = (payload) => (dispatch) => {
   dispatch({

@@ -1,0 +1,194 @@
+.frontPage
+    @include responsive(phone-landscape)
+        height: 100vh
+    &__container
+        width: 80%
+        margin: 0 auto
+        @include responsive(phone-landscape)
+            height: 100vh
+    &__innerContainer
+        justify-content: space-between
+        margin-left: 10%
+        @include responsive(950)
+            flex-direction: column
+            justify-content: center
+        @include responsive(phone-landscape)
+            height: 100vh
+            margin-left: 0
+    &__nameElement
+        width: 60rem
+        @include responsive(1920)
+            width: 50rem
+        @include responsive(1280)
+            width: 40rem
+        @include responsive(414-portrait)
+            width: 35rem
+        @include responsive(smallphone-portrait)
+            width: 30rem
+        &:hover
+            path
+                stroke: rgba(0, 253, 232, .6)
+        path
+            transition: all .5s ease
+            stroke-dasharray: 40rem
+            stroke-dashoffset: 40rem
+            stroke-miterlimit: 10
+            stroke-width: 4
+            stroke: rgba(255,255,255,.5)
+            fill: none
+            animation: animateName 2s 2s ease forwards
+        &--lightMode
+            path
+                stroke: rgba(0,0,0,.5)
+
+    &__reactIcon
+        top: 40%
+        right: 50%
+        @include responsive(1920)
+            right: 40%
+        @include responsive(1366)
+            top: 30%
+            width: 15rem
+            height: 15rem
+        @include responsive(tablet-landscape)
+            width: 12rem
+            height: 12rem
+        @include responsive(950)
+            top: 15%
+            right: 30%
+        @include responsive(phone-landscape)
+            top: 40%
+            right: 0
+        @include responsive(phone)
+            top: 8%
+            right: 25%
+        @include responsive(smallphone-landscape)
+            height: 10rem
+            width: 10rem
+            top: 30%
+        @include responsive(smallphone-portrait)
+            height: 10rem
+            width: 10rem
+    &__jsIcon
+        top: 0
+        @include responsive(1600)
+            top: -10%
+        @include responsive(1366)
+            top: 10%
+            width: 8rem
+            height: 8rem
+        @include responsive(tablet-landscape)
+            top: 0
+        @include responsive(900)
+            left: 40%
+            top: 10%
+        @include responsive(phone-landscape)
+            left: 30%
+            top: -20%
+        @include responsive(700)
+            top: 0
+            left: 20%
+        @include responsive(670-land)
+            left: 45%
+        @include responsive(phone)
+            top: -20%
+            left: 40%
+        @include responsive(smallphone-landscape)
+            height: 6rem
+            width: 6rem
+            left: 30%
+        @include responsive(414-portrait)
+            top: -40% !important
+        @include responsive(375-portrait)
+            top: -40%
+            left: 50%
+        @include responsive(smallphone-portrait)
+            height: 6rem
+            width: 6rem
+
+    &__sassIcon
+        top: unset
+        bottom: 45%
+        left: 10%
+        @include responsive(1366)
+            width: 8rem
+            height: 8rem
+        @include responsive(950)
+            bottom: 35%
+        @include responsive(phone-landscape)
+            bottom: 50%
+            left: -5%
+        @include responsive(smallphone-landscape)
+            height: 6rem
+            width: 6rem
+        @include responsive(414-portrait)
+            bottom: 60%
+        @include responsive(smallphone-portrait)
+            bottom: 50%
+            height: 6rem
+            width: 6rem
+
+    &__textContainer
+        cursor: default
+        width: 50rem
+        @include responsive(1600)
+            width: 35rem
+        @include responsive(1280)
+            width: 30rem
+        @include responsive(tablet-landscape)
+            width: 23rem
+        @include responsive(950)
+            margin-top: 3rem
+        @include responsive(414-portrait)
+            width: 20rem
+
+        &:hover
+            .frontPage__writingText
+                color: rgba(236, 58, 88, .6)
+
+    &__writingText
+        border-right: solid 2px rgba(0, 253, 232, .6)
+        white-space: nowrap
+        overflow: hidden
+        color: rgba(255,255,255,.5)
+        margin: 0 auto
+        font-family: 'Brush Script MT Italic'
+        font-size: 5rem
+        transition: all .5s ease
+        @include responsive(1920)
+            font-size: 4rem
+        @include responsive(1280)
+            font-size: 3rem
+        @include responsive(414-portrait)
+            font-size: 2.5rem
+        &--lightMode
+            border-right-color: rgba(236, 58, 88, .6)
+            color: rgba(0,0,0,.5)
+        &--0
+            margin-left: -4rem
+            animation: animated-text2600 .8s steps(7,end) 3s 1 normal both
+            @include responsive(1280)
+                animation: animated-text .8s steps(7,end) 3s 1 normal both
+        &--1
+            animation: animated-text2600 .8s steps(7,end) 3.8s 1 normal both
+            margin-left: -2rem
+            @include responsive(1280)
+                animation: animated-text .8s steps(7,end) 3.8s 1 normal both
+        &--2
+            animation: animated-Bigtext2600 1.6s steps(14,end) 4.6s 1 normal both
+            @include responsive(1600)
+                animation: animated-Bigtext1600 1.6s steps(14,end) 4.6s 1 normal both
+            @include responsive(1280)
+                animation: animated-text-bigger 1.6s steps(14,end) 4.6s 1 normal both
+            @include responsive(414-portrait)
+                animation: animated-BigText414 1.6s steps(14,end) 4.6s 1 normal both
+        &--3
+            animation: animated-text2600 .8s steps(7,end) 6s 1 normal both
+            margin-left: -2rem
+            @include responsive(1280)
+                animation: animated-text .8s steps(7,end) 6s 1 normal both
+        &--4
+            animation: animated-text2600 .8s steps(7,end) 6.8s 1 normal both
+            margin-left: -4rem
+            @include responsive(1280)
+                animation: animated-text .8s steps(7,end) 6.8s 1 normal both

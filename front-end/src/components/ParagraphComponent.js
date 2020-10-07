@@ -2,7 +2,12 @@ import React, { useCallback } from "react";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import { setLoading, setActiveNav } from "../static/store/actions";
+import {
+  setLoading,
+  setActiveNav,
+  setNavInfoElements,
+  setSideBar,
+} from "../static/store/actions";
 
 const mapStateToProps = (state) => ({
   lightMode: state.page.lightMode,
@@ -10,6 +15,8 @@ const mapStateToProps = (state) => ({
 const mapActionToProps = {
   setLoading,
   setActiveNav,
+  setNavInfoElements,
+  setSideBar,
 };
 
 export default connect(
@@ -25,6 +32,8 @@ export default connect(
       setLoading,
       history: { push },
       classNames,
+      setNavInfoElements,
+      setSideBar,
     }) => {
       const paragraphClassNames = classnames(
         "paragraphComponent",
@@ -42,6 +51,8 @@ export default connect(
           e.preventDefault();
           setLoading(true);
           setTimeout(() => {
+            setNavInfoElements(false);
+            setSideBar(false);
             setLoading(false);
             push(to);
           }, 1200);
@@ -87,7 +98,16 @@ export default connect(
             return <span key={index}>{el.text}</span>;
           }
         });
-      }, [link1, link2, paragraphText, push, setLoading, lightMode]);
+      }, [
+        link1,
+        link2,
+        paragraphText,
+        push,
+        setLoading,
+        lightMode,
+        setNavInfoElements,
+        setSideBar,
+      ]);
       return (
         <p className={paragraphClassNames}>
           <span className="titleComponent__tag titleComponent__tag--topP">

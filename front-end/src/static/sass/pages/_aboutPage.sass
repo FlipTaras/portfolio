@@ -11,26 +11,3 @@
     &__innerContainer
         @include responsive(500)
             height: 115vh
-
-.lineElement
-    position: absolute
-    bottom: 4%
-    @include responsive(ipadPro-portrait)
-        width: 103%
-        left: -3%
-    @include responsive(900)
-        width: 103%
-        left: -3%
-    @include responsive(phone-landscape)
-        display: none
-    @include responsive(700)
-        display: none
-
-    path
-        stroke-dasharray: 2200
-        stroke-dashoffset: 2100
-        stroke-miterlimit: 10
-        stroke-width: 4
-        stroke: rgba(255,255,255,.5)
-        fill: none
-        animation: dash 2s 2s ease forwards, dashleft 2s 4s ease forwards

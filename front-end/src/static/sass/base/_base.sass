@@ -77,6 +77,36 @@ code
     @include responsive(700)
         max-width: 85%
 
+/* Line Element */
+
+.lineElement
+    position: absolute
+    bottom: 5.3%
+    transform: rotate(2deg)
+    // width: 99%
+    @include responsive(ipadPro-portrait)
+        width: 103%
+        left: -3%
+    @include responsive(900)
+        width: 103%
+        left: -3%
+    @include responsive(phone-landscape)
+        display: none
+    @include responsive(700)
+        display: none
+    &--dark
+        path
+            stroke: rgba(0,0,0,.5) !important
+
+    path
+        stroke-dasharray: 2200
+        stroke-dashoffset: 2100
+        stroke-miterlimit: 10
+        stroke-width: 4
+        stroke: rgba(255,255,255,.5)
+        fill: none
+        animation: dash 2s 2s ease forwards, dashleft 2s 4s ease forwards
+
 /* FONTS */
 
 @font-face
@@ -96,3 +126,7 @@ code
     font-style: normal
     font-weight: normal
     src: url("../../fonts/Comic-Sans-Ms.ttf")
+
+@font-face
+    font-family: "Brush Script MT Italic"
+    src: url("../../fonts/BRUSHSCI.TTF")
