@@ -1,24 +1,23 @@
 /* Loader animations */
 
-@keyframes spin 
-    0% 
-        transform: rotate(0deg); 
-    100% 
-        transform: rotate(360deg); 
-  
+@keyframes spin
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
 @keyframes scaleIn
     0%
-        transform: scaleX(1)   
+        transform: scaleX(1)
     100%
         transform: scaleX(0)
 
 @keyframes scaleOut
     0%
         transform: scaleX(0)
-        
+
     100%
         transform: scaleX(1)
-
 
 @keyframes hide
     0%
@@ -29,22 +28,20 @@
 @keyframes show
     0%
         opacity: 0
-        
+
     100%
         opacity: 1
-
 
 /* Skills page animation */
 
 @keyframes reactlogoRotate
     0%
         transform: rotate(0)
-        opacity: .8  
+        opacity: .8
     100%
         transform: rotate(360deg)
         opacity: .8
 
-        
 @keyframes cupfloat
     0%
         transform: rotate(-20deg) translateY(1rem)
@@ -59,7 +56,7 @@
 
 @keyframes hideShow
     0%
-        opacity: 1   
+        opacity: 1
     100%
         opacity: .1
 
@@ -70,7 +67,23 @@
     100%
         transform: scale(1)
         opacity: 1
-        
+
+@keyframes scaleSectionMore
+    0%
+        transform: scale(.8)
+        opacity: 0
+
+    100%
+        transform: scale(.9)
+        opacity: 1
+@keyframes scaleSectionOutMore
+    0%
+        transform: scale(.9)
+        opacity: 1
+
+    100%
+        transform: scale(.8)
+        opacity: .7
 
 @keyframes scaleSectionOut
     0%
@@ -87,13 +100,45 @@
 
     50%
         stroke-dashoffset: 800
-    
+
     100%
         stroke-dashoffset: 2100
 
 @keyframes dashleft
     0%
         stroke-dashoffset: -2200
-        
+
     100%
         stroke-dashoffset: -100
+
+/* Contact page */
+@keyframes scaleClick
+    0%
+        transform: scale(1)
+
+    50%
+        transform: scale(.9)
+    100%
+        transform: scale(1)
+
+@keyframes hideInfo
+    0%
+        margin-top: 0
+
+    100%
+        margin-top: -100%
+
+@keyframes opacityTranslateYShow
+    0%
+        opacity: 0
+        transform: translateY(-1rem)
+
+    100%
+        opacity: 1
+        transform: translateY(0)
+
+@keyframes translateYshow
+    0%
+        transform: translateY(-1rem)
+    100%
+        transform: translateY(0)

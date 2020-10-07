@@ -1,0 +1,144 @@
+.contactPage
+    background-color: black
+    height: 100vh
+    background-color: #1D1D1D
+    &__title
+        margin-bottom: 3rem
+    &__container
+        // margin-top: -2%
+        @include responsive(1366)
+            margin-top: -5%
+    &__paragraph
+        margin-bottom: 2rem
+
+    &__formElement
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+    &__inputElement
+        color: white
+        background: none
+        width: 49%
+        padding: 1.5rem 2rem
+        border: 1px solid rgba(255,255,255,.05)
+        font-family: 'Gotham Medium'
+        transition: all .5s ease
+        margin-bottom: 1rem
+        &--lightMode
+            border: 1px solid rgba(0,0,0,.5)
+            color: rgba(0,0,0,.5)
+            &::placeholder
+                color: rgba(0,0,0,.5) !important
+        &--active
+            border-bottom: 1px solid #00fde8
+        &--activeLightMode
+            border-bottom: 1px solid #ec3a58
+        &--wrong
+            border: 1px solid #ec3a58
+        &:focus
+            outline: none
+        &::placeholder
+            color: rgba(255,255,255,0.7)
+            text-transform: capitalize
+            font-family: 'Gotham Medium'
+        &--text
+            width: 100%
+            opacity: 0
+            animation: opacityTranslateYShow .3s 2.9s ease forwards
+
+        &--subject
+            width: 100%
+            opacity: 0
+            animation: opacityTranslateYShow .3s 2.7s ease forwards
+
+        &--name
+            opacity: 0
+            animation: opacityTranslateYShow .3s 2.3s ease forwards
+            @include responsive(ipadPro-portrait)
+                width: 100%
+            @include responsive(tablet-portrait)
+                width: 100%
+            @include responsive(tablet-landscape)
+                width: 100%
+
+        &--email
+            opacity: 0
+            animation: opacityTranslateYShow .3s 2.5s ease forwards
+            @include responsive(ipadPro-portrait)
+                width: 100%
+            @include responsive(tablet-portrait)
+                width: 100%
+            @include responsive(tablet-landscape)
+                width: 100%
+
+    &__sendButton
+        position: relative
+        background: none
+        margin-top: 2rem
+        color: white
+        padding: 1rem 2rem
+        border: 1px solid rgba(255,255,255,.7)
+        border-radius: 2rem
+        font-family: 'Gotham Medium'
+        margin-left: auto
+        cursor: pointer
+        transition: all .2s ease
+        &--lightMode
+            border: 1px solid rgba(0,0,0,.5)
+            color: rgba(0,0,0,.5)
+            &:hover
+                color: white !important
+                background-color: rgba(0,0,0,.7) !important
+        &:hover
+            color: black
+            background-color: rgba(255,255,255,.7)
+        &:focus,
+        &:active
+            outline: none
+        &:disabled
+            opacity: .1
+            pointer-events: none
+        &--loading
+            transform: scale(.9)
+            opacity: .2
+
+    &__loader
+        position: absolute
+        transform: none
+        margin: 0
+        left: unset
+        height: 3rem
+        width: 3rem
+        top: 4px
+        border-width: 2px
+        border-right-color: #ec3a58
+        filter: none
+        &::before
+            border-left-color: #00fde8
+        &::after
+            content: none
+
+    &__sendInfo
+        position: fixed
+        top: -10%
+        left: 50%
+        transform: translateX(-50%) translateY(0)
+        transition: all .5s ease
+        @include responsive(phone)
+            width: 100%
+            text-align: center
+        &--show
+            top: 0
+
+    &__infoText
+        font-size: 1.1rem
+        padding: 1.2rem 1rem 1.2rem
+        border-bottom-left-radius: 2rem
+        border-bottom-right-radius: 2rem
+
+        &--success
+            background-color: rgba(0, 253, 232, .7)
+            color: rgba(29, 29, 29, .9)
+        &--error
+            background-color: rgba(236, 58, 88, .7)
+            color: rgba(255,255,255,.9)

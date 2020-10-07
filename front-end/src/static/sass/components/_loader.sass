@@ -2,7 +2,7 @@
     position: relative
     left: 50%
     top: 50%
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0)
     width: 150px
     height: 150px
     margin: -75px 0 0 -75px
@@ -13,7 +13,7 @@
     animation: spin 1.5s linear infinite
     filter: blur(2px)
 
-    &::before 
+    &::before
         content: ""
         position: absolute
         top: 5px
@@ -24,9 +24,9 @@
         border: 3px solid transparent
         border-top-color: #00fde8
         opacity: .9
-        animation: spin 2s linear infinite 
-        
-    &::after 
+        animation: spin 2s linear infinite
+
+    &::after
         content: ""
         position: absolute
         top: 15px
@@ -37,8 +37,8 @@
         border: 3px solid transparent
         border-top-color: #ec3a58
         opacity: .9
-        animation: spin 3s linear infinite 
-    &__content 
+        animation: spin 3s linear infinite
+    &__content
         height: 100%
         &--initial
             animation: hide .5s 1s ease-in-out forwards
@@ -49,7 +49,7 @@
             opacity: 1
             animation: hide .5s 1s ease forwards
 
-    &__wrapper 
+    &__wrapper
         position: fixed
         display: block
         top: 0
@@ -73,7 +73,6 @@
         color: rgba(255,255,255,0.9)
         font-size: 1.5rem
         text-transform: uppercase
-        
 
     &__logo
         height: 10rem
@@ -83,14 +82,14 @@
         // opacity: .7
         left: 50%
         top: 50%
-        transform: translateX(-50%) translateY(-45%);
+        transform: translateX(-50%) translateY(-45%)
 
     &__infoContainer
         position: absolute
         left: 50%
         top: 50%
         width: 30rem
-        transform: translateX(-25%) translateY(450%);
+        transform: translateX(-25%) translateY(450%)
         display: flex
         height: 2rem
         align-items: center
@@ -99,7 +98,7 @@
         display: flex
         margin: .8rem 0 0 .8rem
 
-    &__dot 
+    &__dot
         height: .5rem
         width: .5rem
         background-color: rgba(255,255,255,.9)
@@ -113,5 +112,3 @@
             animation: show .6s .3s infinite
         &--3
             animation: show .6s .4s infinite
-
-

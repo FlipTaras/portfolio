@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(
-  ({ lightMode, title, tag, titleWidth, smallTitleWidth }) => {
+  ({ lightMode, title, tag, titleWidth, smallTitleWidth, classNames }) => {
     useEffect(() => {
       document.documentElement.style.setProperty("--titleWidth", titleWidth);
       document.documentElement.style.setProperty(
@@ -17,7 +17,8 @@ export default connect(mapStateToProps)(
     }, [titleWidth, smallTitleWidth]);
     const titleClassNames = classnames(
       "titleComponent",
-      lightMode && "titleComponent--lightMode"
+      lightMode && "titleComponent--lightMode",
+      classNames
     );
     return (
       <h1 className={titleClassNames}>

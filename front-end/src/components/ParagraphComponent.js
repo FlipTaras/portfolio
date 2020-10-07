@@ -24,10 +24,12 @@ export default connect(
       link2,
       setLoading,
       history: { push },
+      classNames,
     }) => {
       const paragraphClassNames = classnames(
         "paragraphComponent",
-        lightMode && "paragraphComponent--lightMode"
+        lightMode && "paragraphComponent--lightMode",
+        classNames
       );
 
       const renderParagraphText = useCallback(() => {

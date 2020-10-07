@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(({ lightMode }) => {
   const StaticToggleClassnames = classnames(
     "staticArrowContainer__toggle",
-    lightMode && "staticArrowContainer__toggle--lightMode"
+    lightMode && "staticArrowContainer--lightMode"
   );
   return (
     <StaticArrowContainer

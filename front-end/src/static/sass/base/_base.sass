@@ -1,4 +1,4 @@
-* 
+*
     margin: 0
     padding: 0
     box-sizing: border-box
@@ -9,8 +9,7 @@
 html
     font-size: 62.5% // defines that 1 rem - 10px
 
-
-body 
+body
     font-family: 'Gotham Medium', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif
@@ -21,8 +20,7 @@ body
 .overscroll-off
     overflow: hidden !important
 
-
-code 
+code
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace
 
@@ -32,6 +30,7 @@ code
 .section
     background-color: #1D1D1D
     height: 100vh
+    overflow: hidden
     @include responsive(phone-landscape)
         height: 200vh
     @include responsive(670-land)
@@ -52,12 +51,22 @@ code
     animation: scaleSection .4s 2s ease forwards
     @include responsive(phone-landscape)
         height: 200vh
+        transform: scale(.9)
+        animation: scaleSectionMore .4s 2s ease forwards
     @include responsive(670-land)
         height: 170vh
+    @include responsive(500)
+        height: 105vh
+        transform: scale(.9)
+        animation: scaleSectionMore .4s 2s ease forwards
     @include responsive(smallphone-landscape)
         height: 140vh
     &--loading
         animation: scaleSectionOut .4s ease forwards
+        @include responsive(phone-landscape)
+            animation: scaleSectionOutMore .4s ease forwards
+        @include responsive(500)
+            animation: scaleSectionOutMore .4s ease forwards
 
 .container
     width: 60%
@@ -69,20 +78,20 @@ code
         max-width: 85%
 
 /* FONTS */
-    
-@font-face 
+
+@font-face
     font-family: 'Gotham Medium'
     font-style: normal
     font-weight: normal
     src: url("../../fonts/Gotham-Medium.otf")
 
-@font-face 
+@font-face
     font-family: 'Gotham Book'
     font-style: normal
     font-weight: normal
     src: url("../../fonts/Gotham-Book.otf")
 
-@font-face 
+@font-face
     font-family: 'Comic Sans Ms'
     font-style: normal
     font-weight: normal

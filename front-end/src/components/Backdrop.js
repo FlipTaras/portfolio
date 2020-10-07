@@ -39,6 +39,7 @@ export default connect(
       window.removeEventListener("resize", checkSize);
     };
   });
+
   return (
     <Transition in={activeSideBar} timeout={200}>
       {(state) => (
