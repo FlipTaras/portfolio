@@ -62,13 +62,15 @@
         @include responsive(phone)
             top: 8%
             right: 25%
-        @include responsive(smallphone-landscape)
+        @include responsive(414-portrait)
             height: 10rem
             width: 10rem
+        @include responsive(smallphone-landscape)
             top: 30%
         @include responsive(smallphone-portrait)
             height: 10rem
             width: 10rem
+
     &__jsIcon
         top: 0
         @include responsive(1600)
@@ -98,13 +100,15 @@
             width: 6rem
             left: 30%
         @include responsive(414-portrait)
-            top: -40% !important
+            top: -35% !important
+            height: 6rem
+            width: 6rem
         @include responsive(375-portrait)
             top: -40%
             left: 50%
-        @include responsive(smallphone-portrait)
-            height: 6rem
-            width: 6rem
+        // @include responsive(smallphone-portrait)
+            // height: 6rem
+            // width: 6rem
 
     &__sassIcon
         top: unset
@@ -122,11 +126,13 @@
             height: 6rem
             width: 6rem
         @include responsive(414-portrait)
-            bottom: 60%
+            bottom: 45%
+            width: 6rem
+            height: 6rem
         @include responsive(smallphone-portrait)
             bottom: 50%
-            height: 6rem
-            width: 6rem
+            // height: 6rem
+            // width: 6rem
 
     &__textContainer
         cursor: default

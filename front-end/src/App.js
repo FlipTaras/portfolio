@@ -8,6 +8,7 @@ import ContactPage from "./pages/ContactPage";
 import Navbar from "./components/Navbar";
 import { connect } from "react-redux";
 import { setLoading, setActiveNav } from "./static/store/actions";
+import ProjectsPage from "./pages/ProjectsPage";
 
 const mapActionToProps = {
   setLoading,
@@ -24,6 +25,7 @@ function App() {
         <Route path="/about" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/skills" component={SkillsPage} />
+        <Route path="/projects" component={ProjectsPage} />
       </Switch>
     </div>
   );

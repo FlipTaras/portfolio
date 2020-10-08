@@ -26,15 +26,30 @@
         font-family: 'Brush Script MT Italic'
         color: rgba(255,255,255,.7)
         position: absolute
-        left: 200%
         display: flex
         align-items: center
-        width: 20rem
+        width: 30rem
         margin-top: 3px
-        font-size: 1.1rem
+        font-size: 2rem
+        left: 300%
+        // width: 20rem
+        // left: 200%
+        // font-size: 1.2rem
         display: flex
+        @include responsive(1920)
+            width: 20rem
+            left: 250%
+            font-size: 1.8rem
+        @include responsive (1600)
+            font-size: 1.5rem
+        @include responsive(1280)
+            font-size: 1.3rem
+            left: 200%
+        @include responsive(tablet-landscape)
+            font-size: 1.2rem
+            left: 150%
         @include responsive(phone)
-            width: 12rem
+            width: 14rem
 
         &--active
             animation-delay: .5s !important
