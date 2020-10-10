@@ -4,6 +4,14 @@ export const SET_ACTIVE_NAV = "SET_ACTIVE_NAV";
 export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
 export const SET_SIDEBAR = "SET_SIDEBAR";
 export const SET_NAV_INFOELEMENTS = "SET_NAV_INFOELEMENTS";
+export const SET_PAGEINDEX = "SET_PAGEINDEX";
+
+export const setPageIndex = (index) => (dispatch) => {
+  dispatch({
+    type: SET_PAGEINDEX,
+    payload: index,
+  });
+};
 
 export const setNavInfoElements = (payload) => (dispatch) => {
   dispatch({

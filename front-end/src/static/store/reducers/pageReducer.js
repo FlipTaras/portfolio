@@ -6,10 +6,13 @@ const initialState = {
   activeNav: null,
   activeSideBar: false,
   navInfoElements: false,
+  pageIndex: "0",
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case actionType.SET_PAGEINDEX:
+      return { ...state, pageIndex: action.payload };
     case actionType.SET_NAV_INFOELEMENTS:
       return { ...state, navInfoElements: action.payload };
     case actionType.SET_LOADING:

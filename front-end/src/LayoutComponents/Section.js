@@ -19,30 +19,39 @@ const mapActionToProps = {
 export default connect(
   mapStateToProps,
   mapActionToProps
-)(({ children, lightMode, classNames, toggleSideBar, activeSideBar }) => {
-  const sectionClassNames = classnames(
-    "section",
-    lightMode && "section--lightMode",
-    classNames
-  );
-  const hamburgerClassNames = classnames(
-    "hamburger",
-    lightMode && "hamburger--lightMode"
-  );
-  return (
-    <section className={sectionClassNames}>
-      <Backdrop />
-      <div className={hamburgerClassNames}>
-        <Navbar sidebar />
-        <Hamburger
-          toggle={toggleSideBar}
-          toggled={activeSideBar}
-          size="20"
-          direction="right"
-        />
-      </div>
-      <ToggleLightModeComponent />
-      {children}
-    </section>
-  );
-});
+)(
+  ({
+    children,
+    lightMode,
+    classNames,
+    toggleSideBar,
+    activeSideBar,
+    noToggle,
+  }) => {
+    const sectionClassNames = classnames(
+      "section",
+      lightMode && "section--lightMode",
+      classNames
+    );
+    const hamburgerClassNames = classnames(
+      "hamburger",
+      lightMode && "hamburger--lightMode"
+    );
+    return (
+      <section className={sectionClassNames}>
+        <Backdrop />
+        <div className={hamburgerClassNames}>
+          <Navbar sidebar />
+          <Hamburger
+            toggle={toggleSideBar}
+            toggled={activeSideBar}
+            size="20"
+            direction="right"
+          />
+        </div>
+        {!noToggle && <ToggleLightModeComponent />}
+        {children}
+      </section>
+    );
+  }
+);
