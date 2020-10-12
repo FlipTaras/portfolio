@@ -8,9 +8,11 @@ import {
   setNavInfoElements,
   setSideBar,
 } from "../static/store/actions";
+import LiveGitElement from "./LiveGitElement";
 
 const mapStateToProps = (state) => ({
   lightMode: state.page.lightMode,
+  width: state.page.width,
 });
 const mapActionToProps = {
   setLoading,
@@ -34,7 +36,13 @@ export default connect(
       classNames,
       setNavInfoElements,
       setSideBar,
+      width,
+      showLiveGit,
+      gitLink,
+      liveLink,
+      customGitLiveClassNames,
     }) => {
+      console.log(customGitLiveClassNames);
       const paragraphClassNames = classnames(
         "paragraphComponent",
         lightMode && "paragraphComponent--lightMode",
@@ -46,18 +54,19 @@ export default connect(
           "paragraphComponent__link",
           lightMode && "paragraphComponent__link--lightMode"
         );
-        const delayRedirect = (e) => {
-          const to = e.target.getAttribute("href");
-          e.preventDefault();
-          setLoading(true);
-          setTimeout(() => {
-            setNavInfoElements(false);
-            setSideBar(false);
-            setLoading(false);
-            push(to);
-          }, 1200);
-        };
+
         return paragraphText.map((el, index) => {
+          const delayRedirect = (e) => {
+            const to = e.target.getAttribute("href");
+            e.preventDefault();
+            setLoading(true);
+            setTimeout(() => {
+              setNavInfoElements(false);
+              setSideBar(false);
+              setLoading(false);
+              push(to);
+            }, 1200);
+          };
           if (el.text.includes("link1") || el.text.includes("link2")) {
             const splitFirst = el.text.split("link1");
             if (el.text.includes("link2")) {
@@ -109,15 +118,31 @@ export default connect(
         setSideBar,
       ]);
       return (
-        <p className={paragraphClassNames}>
-          <span className="titleComponent__tag titleComponent__tag--topP">
-            {"<p>"}
-          </span>
-          {renderParagraphText()}
-          <span className="titleComponent__tag titleComponent__tag--bottomP">
-            {"</p>"}
-          </span>
-        </p>
+        <>
+          <p className={paragraphClassNames}>
+            {showLiveGit && width <= 1100 && (
+              <LiveGitElement
+                customGitLiveClassNames={customGitLiveClassNames}
+                gitLink={gitLink}
+                liveLink={liveLink}
+              />
+            )}
+            <span className="titleComponent__tag titleComponent__tag--topP">
+              {"<p>"}
+            </span>
+            {renderParagraphText()}
+            <span className="titleComponent__tag titleComponent__tag--bottomP">
+              {"</p>"}
+            </span>
+            {showLiveGit && width > 1100 && (
+              <LiveGitElement
+                customGitLiveClassNames={customGitLiveClassNames}
+                gitLink={gitLink}
+                liveLink={liveLink}
+              />
+            )}
+          </p>
+        </>
       );
     }
   )

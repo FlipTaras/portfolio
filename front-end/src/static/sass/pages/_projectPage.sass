@@ -1,38 +1,195 @@
 .projectPage
+    height: unset
+    min-height: 100vh
+    @include responsive(phone)
+        display: flex
+        justify-content: center
+        align-items: center
+
     &__container
         width: 80%
         margin: 0 auto
+        @include responsive(phone-landscape)
+            width: 95%
+            // padding-bottom: 5rem
+        @include responsive(670-land)
     &__innerContainer
+        justify-content: space-between
         height: unset
         flex-wrap: wrap
+        @include responsive(phone-landscape)
+            height: unset
+        @include responsive(500)
+            text-align: center
+        @include responsive(smallphone-landscape)
+            height: unset
 
     &__videoContainer
         width: 50%
+        height: 80rem
+        @include responsive(2200)
+            height: 70rem
+        @include responsive(1920)
+            height: 60rem
+        @include responsive(1600)
+            height: 50rem
+        @include responsive(1100)
+            height: 40rem
+        @include responsive(900)
+            height: 45rem
+        @include responsive(phone-landscape)
+            height: 27rem
+        @include responsive(ipadPro-portrait)
+            height: 70rem
+        @include responsive(670-land)
+            height: 25rem
+        @include responsive(phone)
+            height: 25rem
+            margin-left: 4rem
+        @include responsive(550)
+            margin-left: -1rem
+        @include responsive(500)
+            height: 40rem
+        @include responsive(414-portrait)
+            height: 25rem
+            margin-left: 4rem
+        @include responsive(375-portrait)
+            margin-left: 2rem
+        @include responsive(smallphone-portrait)
+            height: 20rem
+            margin-left: 3rem
+        @include responsive(280-portrait)
+            margin-left: 1rem
+
+        &--portfolio
+            height: 60rem
+            @include responsive(2200)
+                height: 50rem
+            @include responsive(1600)
+                height: 40rem
+            @include responsive(1280)
+                height: 30rem
+            @include responsive(1100)
+                height: 40rem
+            @include responsive(ipadPro-portrait)
+                height: 50rem
+            @include responsive(700)
+                height: 35rem
+            @include responsive(phone-landscape)
+                height: 25rem
+            @include responsive(670-land)
+                height: 20rem
+            @include responsive(650)
+                height: 30rem
+                margin-left: 0
+            @include responsive(smallphone-landscape)
+                height: 25rem
+            @include responsive(550)
+                margin-left: -2rem
+            @include responsive(500)
+                height: 25rem
+                margin-left: 0
+            @include responsive(414-portrait)
+                margin-left: -2.5rem
+            @include responsive(375-portrait)
+                height: 24rem
+                margin-left: -3rem
+            @include responsive(smallphone-portrait)
+                height: 20rem
+                margin-left: -2.5rem
+
     &__video
-        height: 50rem
         object-fit: contain
+        height: 100%
         border-radius: 2rem
         pointer-events: none
         opacity: 0
-        animation: opacity7TranslateYShow 1s 2.5s forwards ease
-        &--nodelay
-            animation-delay: .8s !important
+        &--initial
+            animation: opacity7TranslateYShow 1s 2.5s forwards ease !important
+        &--animated
+            animation: opacity7TranslateYShow 1s 1s forwards ease
 
     &__title
         text-align: center
         width: 100%
-        margin: 5% 0
-        font-size: 4rem
+        margin: 2% 0
+        font-size: 7rem
         color: rgba(255,255,255,.7)
         opacity: 0
-        animation: opacity7TranslateYShow 1s 2.2s forwards ease
-        &--nodelay
-            animation-delay: .5s !important
+        &--initial
+            animation: opacity7TranslateYShow 1s 2.2s forwards ease !important
+        &--animated
+            animation: opacity7TranslateYShow 1s .3s forwards ease
+
+        @include responsive(1600)
+            font-size: 5rem
+        @include responsive(1100)
+            text-align: left
+        @include responsive(ipadPro-portrait)
+            font-size: 7rem
+        @include responsive(tablet-landscape)
+            font-size: 4rem
+        @include responsive(phone-landscape)
+            font-size: 3rem
+        @include responsive(670-land)
+            font-size: 2.7rem
+        @include responsive(phone)
+            font-size: 2rem
+        @include responsive(500)
+            text-align: center
+            margin-bottom: 2rem
+        @include responsive(414-portrait)
+            margin-top: 1%
 
     &__paragraph
         width: 50%
-        font-size: 1.5rem
+        font-size: 2.5rem
         opacity: 0
-        animation: opacity7TranslateYShow 1s 2.8s forwards ease
-        &--nodelay
-            animation-delay: 1s !important
+        &--initial
+            animation: opacity7TranslateYShow 1s 2.8s forwards ease !important
+        &--animated
+            animation: opacity7TranslateYShow 1s .6s forwards ease
+
+        @include responsive(2200)
+            font-size: 2.3rem
+        @include responsive(1920)
+            font-size: 2.1rem
+        @include responsive(1600)
+            font-size: 1.5rem
+            width: 40%
+        @include responsive(1366)
+            font-size: 1.4rem
+        @include responsive(1100)
+            margin-top: 2rem
+            font-size: 1.3rem
+            width: 100%
+        @include responsive(900)
+            font-size: 1.5rem
+        @include responsive(phone-landscape)
+            width: 50%
+            font-size: 1.2rem
+        @include responsive(ipadPro-portrait)
+            font-size: 1.8rem
+        @include responsive(phone)
+            font-size: 1.3rem
+        @include responsive(414-portrait)
+            font-size: 1.2rem
+        @include responsive(375-portrait)
+            font-size: 1rem
+        @include responsive(smallphone-landscape)
+            width: 100%
+
+        &--portfolio
+            width: 40%
+            @include responsive(1920)
+                width: 35%
+            @include responsive(1280)
+                width: 40%
+            @include responsive(1100)
+                width: 100%
+            @include responsive(phone-landscape)
+                width: 40%
+            @include responsive(670-land)
+                width: 50%
+            @include responsive(smallphone-landscape)
+                width: 100%

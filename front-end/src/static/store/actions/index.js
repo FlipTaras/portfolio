@@ -5,7 +5,14 @@ export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
 export const SET_SIDEBAR = "SET_SIDEBAR";
 export const SET_NAV_INFOELEMENTS = "SET_NAV_INFOELEMENTS";
 export const SET_PAGEINDEX = "SET_PAGEINDEX";
+export const SET_WIDTH = "SET_WIDTH";
 
+export const setWidth = (width) => (dispatch) => {
+  dispatch({
+    type: SET_WIDTH,
+    payload: width,
+  });
+};
 export const setPageIndex = (index) => (dispatch) => {
   dispatch({
     type: SET_PAGEINDEX,

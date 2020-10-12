@@ -1,5 +1,9 @@
 @mixin responsive($breakpoint)
 
+    @if $breakpoint == 280-portrait
+        @media only screen and (max-width: 17.5em) and (orientation: portrait)  // 320px --> 600 / 16
+            @content
+
     @if $breakpoint == smallphone-landscape // 576 px
         @media only screen and (max-width: 36em) and (orientation: landscape)
             @content
@@ -30,6 +34,10 @@
 
     @if $breakpoint == 500 // 500px
         @media only screen and (max-width: 31.25em)
+            @content
+
+    @if $breakpoint == 550 // 550px
+        @media only screen and (max-width: 34.375em)
             @content
 
     @if $breakpoint == phone
@@ -80,6 +88,10 @@
         @media only screen and (max-width: 64em) and (orientation: portrait)
             @content
 
+    @if $breakpoint == 1100  // 1100 px
+        @media only screen and (max-width: 68.75em)
+            @content
+
     @if $breakpoint == 1200  // 1200 px
         @media only screen and (max-width: 75em)
             @content
@@ -101,6 +113,10 @@
 
     @if $breakpoint == 1920  // 1930 px
         @media only screen and (max-width: 120em)
+            @content
+
+    @if $breakpoint == 2200  // 2200 px
+        @media only screen and (max-width: 137.5em)
             @content
 
     @if $breakpoint == 2560  // 2560 px

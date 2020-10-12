@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import {
@@ -16,7 +16,7 @@ import Icon from "./Icon";
 /* Animation Settings */
 const defaultStyle = {
   transition: "transform .2s ease-out",
-  transform: "translateX(-100%)",
+  transform: "translateX(-110%)",
 };
 const transitionStyles = {
   entering: {
@@ -31,7 +31,7 @@ const transitionStyles = {
     transitionDelay: "0s",
   },
   exited: {
-    transform: "translateX(-100%)",
+    transform: "translateX(-110%)",
   },
 };
 
@@ -46,19 +46,15 @@ const Navbar = ({
   setSideBar,
   navInfoElements,
   setNavInfoElements,
+  width,
+  lightMode,
 }) => {
   const navbarClassNames = classnames(sidebar ? "sidebar" : "navbar");
   const infoElementsClassNames = classnames(
     "navbar__infoTextContainer",
-    activeSideBar && "navbar__infoTextContainer--active"
+    activeSideBar && "navbar__infoTextContainer--active",
+    lightMode && "navbar__infoTextContainer--lightMode"
   );
-  /* Check the width of the page */
-  const [width, setWidth] = useState(window.innerWidth);
-  useEffect(() => {
-    const unsubscribe = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", unsubscribe);
-    return window.removeEventListener("resize", unsubscribe);
-  }, []);
 
   /* Set active nav Element UI */
   useEffect(() => {
@@ -188,10 +184,17 @@ const Navbar = ({
               </Link>
             </div>
             <div className="navbar__links">
-              <a className="navbar__link" href="https://github.com/FlipTaras">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className="navbar__link"
+                href="https://github.com/FlipTaras"
+              >
                 <i className="fab fa-github "></i>
               </a>
               <a
+                rel="noopener noreferrer"
+                target="_blank"
                 className="navbar__link"
                 href="https://www.facebook.com/taras.shinkarenko/"
               >
@@ -209,6 +212,8 @@ const mapStateToProps = (state) => ({
   activeNav: state.page.activeNav,
   activeSideBar: state.page.activeSideBar,
   navInfoElements: state.page.navInfoElements,
+  width: state.page.width,
+  lightMode: state.page.lightMode,
 });
 const mapActionToProps = {
   setLoading,

@@ -1,4 +1,4 @@
-.titleComponent 
+.titleComponent
 
     font-size: 10rem
     margin-bottom: 5rem
@@ -54,7 +54,7 @@
 
     &--lightMode
         color: #ec3a58
-        
+
     &__tag
         font-family: 'Comic Sans Ms'
         position: absolute
@@ -72,15 +72,17 @@
             left: -4%
             top: 0
             @include responsive(1600)
-                left: -5%
+                left: -7%
                 top: -1%
+            @include responsive(1280)
+                left: -5%
             @include responsive(phone)
                 left: -8%
             @include responsive(smallphone-landscape)
                 left: -5%
             @include responsive(414-portrait)
                 top: 1%
-        
+
         &--bottomP
             right: 4%
             bottom: -4%
@@ -111,15 +113,7 @@
                 left: -4rem
             @include responsive(414-portrait)
                 left: -3rem
-        
+
         &--rightH1
             top: 40%
             right: 0
-            // @include responsive(1920)
-            //     right: -20%
-            // @include responsive(700)
-            //     right: -5%
-            // @include responsive(500)
-            //     right: -12%
-            // @include responsive(smallphone-portrait)
-            //     right: -20%

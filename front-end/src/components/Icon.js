@@ -262,7 +262,8 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
   } else if (icon === "arrow-straight") {
     const arrowClassNames = classnames(
       "arrow-straight",
-      lightMode && "arrow-straight--lightMode"
+      lightMode && "arrow-straight--lightMode",
+      classNames
     );
     return (
       <svg

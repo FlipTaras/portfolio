@@ -1,192 +1,132 @@
 import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import ParagraphComponent from "../components/ParagraphComponent";
-import Container from "../LayoutComponents/Container";
-import InnerContainer from "../LayoutComponents/InnerContainer";
-import Section from "../LayoutComponents/Section";
 import ReactFullpage from "@fullpage/react-fullpage";
 import FullpageButton from "../components/FullpageButton";
-import classnames from "classnames";
+import ProjectSection from "../components/ProjectSection";
 
-import {
-  setLoading,
-  setNavInfoElements,
-  setSideBar,
-} from "../static/store/actions";
+import { toggleLightMode } from "../static/store/actions";
 
 const mapStateToProps = (state) => ({
   pageIndex: state.page.pageIndex,
+  width: state.page.width,
+  lightMode: state.page.lightMode,
 });
 const mapActionToProps = {
-  setLoading,
-  setNavInfoElements,
-  setSideBar,
+  toggleLightMode,
 };
 
 export default connect(
   mapStateToProps,
   mapActionToProps
-)(
-  ({
-    setLoading,
-    setNavInfoElements,
-    setSideBar,
-    pageIndex,
-    history: { push },
-  }) => {
-    const [loaded, setLoaded] = useState(null);
-    const videoRefCheck = useRef(null);
-    const videoRef = useRef(null);
-    const [noDelay, setNoDelayAnimation] = useState(false);
+)(({ pageIndex, width, toggleLightMode, lightMode }) => {
+  const [loaded, setLoaded] = useState(null);
+  const videoRef = useRef(null);
+  const videoRef2 = useRef(null);
 
-    const paragraphText = [
-      {
-        text: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
-      },
-      {
-        text: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
-      },
-    ];
+  /* Change initial after 3s appear page */
+  const [initial, setInitial] = useState(true);
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.addEventListener("load", setLoaded(true));
+    }
+    setTimeout(() => {
+      setInitial(false);
+    }, 4000);
+  }, []);
 
-    useEffect(() => {
-      videoRefCheck.current.addEventListener("load", setLoaded(true));
+  /* Sections Ref for mobile animation */
+
+  useEffect(() => {
+    if (lightMode) {
+      toggleLightMode();
+    }
+  }, [toggleLightMode, lightMode]);
+
+  useEffect(() => {
+    if (loaded && width > 900) {
       setTimeout(() => {
-        setNoDelayAnimation(true);
-      }, 5000);
-    }, []);
-
-    useEffect(() => {
-      if (loaded) {
-        setTimeout(() => {
-          if (videoRef.current) {
-            videoRef.current.play();
-          }
-        }, 2000);
-      }
-    }, [loaded, videoRef.current]);
-
-    const delayRedirect = (e) => {
-      const to = e.target.getAttribute("href");
-      e.preventDefault();
-      setLoading(true);
-      setTimeout(() => {
-        setNavInfoElements(false);
-        setSideBar(false);
-        setLoading(false);
-        push(to);
-      }, 1200);
-    };
-
-    return (
-      <>
-        <FullpageButton />
-        {
-          <video
-            ref={videoRefCheck}
-            style={{ display: "none" }}
-            src="https://template-practice-88ad8.web.app/Videos/Tesla.mp4"
-          ></video>
+        if (videoRef.current) {
+          videoRef.current.play();
         }
-        <ReactFullpage
-          //fullpage options
-          licenseKey={process.env.REACT_APP_FULLPAGE}
-          scrollingSpeed={400} /* Options here */
-          render={({ state, fullpageApi }) => {
-            return (
-              <ReactFullpage.Wrapper>
-                <Section noToggle>
-                  <Container classNames="projectPage__container">
-                    <InnerContainer classNames="projectPage__innerContainer">
-                      {pageIndex === "0" && (
-                        <>
-                          <h1
-                            className={classnames(
-                              "projectPage__title",
-                              noDelay && "projectPage__title--nodelay"
-                            )}
-                          >
-                            Tesla Clone
-                          </h1>
-                          {loaded && (
-                            <Link
-                              className="projectPage__videoContainer"
-                              to="/tesla"
-                              onClick={delayRedirect}
-                            >
-                              <video
-                                loop
-                                ref={videoRef}
-                                preload="auto"
-                                playsInline
-                                muted
-                                className={classnames(
-                                  "projectPage__video",
-                                  noDelay && "projectPage__video--nodelay"
-                                )}
-                              >
-                                <source
-                                  src="https://template-practice-88ad8.web.app/Videos/Tesla.mp4"
-                                  type="video/mp4"
-                                ></source>
-                              </video>
-                            </Link>
-                          )}
-                          <ParagraphComponent
-                            classNames={classnames(
-                              "projectPage__paragraph",
-                              noDelay && "projectPage__paragraph--nodelay"
-                            )}
-                            paragraphText={paragraphText}
-                          />
-                        </>
-                      )}
-                    </InnerContainer>
-                  </Container>
-                </Section>
-                <Section noToggle>
-                  <Container classNames="projectPage__container">
-                    <InnerContainer classNames="projectPage__innerContainer">
-                      {pageIndex === "1" && (
-                        <>
-                          <h1 className="projectPage__title projectPage__title--nodelay">
-                            Portfolio
-                          </h1>
-                          {loaded && (
-                            <Link
-                              className="projectPage__videoContainer"
-                              to="/tesla"
-                              onClick={delayRedirect}
-                            >
-                              <video
-                                loop
-                                // ref={videoRef}
-                                preload="auto"
-                                playsInline
-                                muted
-                                className="projectPage__video projectPage__video--nodelay"
-                              >
-                                <source
-                                  src="https://template-practice-88ad8.web.app/Videos/Tesla.mp4"
-                                  type="video/mp4"
-                                ></source>
-                              </video>
-                            </Link>
-                          )}
-                          <ParagraphComponent
-                            classNames="projectPage__paragraph projectPage__paragraph--nodelay"
-                            paragraphText={paragraphText}
-                          />
-                        </>
-                      )}
-                    </InnerContainer>
-                  </Container>
-                </Section>
-              </ReactFullpage.Wrapper>
-            );
-          }}
-        />
-      </>
-    );
-  }
-);
+        if (videoRef2.current) {
+          videoRef2.current.play();
+        }
+      }, 2000);
+    } else {
+      if (pageIndex === "0" && videoRef.current) {
+        videoRef.current.play();
+      }
+      if (pageIndex === "1" && videoRef2.current) {
+        videoRef2.current.play();
+      }
+    }
+  }, [loaded, pageIndex, width]);
+
+  const paragraphTextTesla = [
+    {
+      text: `Fully responsive Tesla clone web application. Based on original design of tesla.com. Main page and product page is implemented (Model S). Navigation is achieved with a usage of React Router.`,
+    },
+    {
+      text: `React with hooks is used for the front end of the application. Redux is used  for global state management. Sass for the styling. FullPage.js package is used for the layout on Product page.`,
+    },
+    {
+      text: `Features to be implemented: Authentication functionality, using Node.js and MongoDB. Payment functionality, using Stripe.`,
+    },
+  ];
+
+  const paragraphTextPortfolio = [
+    {
+      text:
+        "Single Page Portfolio Application made with React and Redux. React-Router is used for client-side routing.",
+    },
+    {
+      text:
+        "Sass is used for styling. Website is decorated using different SVG animations. Layout on /projects route is achived using Fullpage.js package. Website is fully responsive",
+    },
+    {
+      text:
+        "Server side of the app is made using Node.js and Express.js. MongoDB is used as a primary database. Along with axios.js on client side to manage API requests.",
+    },
+  ];
+
+  return (
+    <>
+      <FullpageButton />
+      <ReactFullpage
+        licenseKey={process.env.REACT_APP_FULLPAGE}
+        scrollingSpeed={400} /* Options here */
+        render={({ state, fullpageApi }) => {
+          return (
+            <ReactFullpage.Wrapper>
+              <ProjectSection
+                userPageIndex="0"
+                noToggle
+                title="Tesla Clone (In Progress)"
+                videoLink="https://template-practice-88ad8.web.app/Videos/Tesla.mp4"
+                liveLink="https://axis-9f3a8.firebaseapp.com"
+                gitLink="https://github.com/FlipTaras/tesla-clone"
+                paragraphText={paragraphTextTesla}
+                initial={initial}
+                videoRef={videoRef}
+              />
+              <ProjectSection
+                userPageIndex="1"
+                noToggle
+                title="Portfolio"
+                videoLink="https://template-practice-88ad8.web.app/Videos/Portfolio.mp4"
+                liveLink="https://tarasshynkarenko.com"
+                gitLink="https://github.com/FlipTaras/portfolio"
+                customVideoClassNames="projectPage__videoContainer--portfolio"
+                customParagraphClassNames="projectPage__paragraph--portfolio"
+                customGitLiveClassNames="liveGitElement--portfolio"
+                paragraphText={paragraphTextPortfolio}
+                initial={initial}
+                videoRef={videoRef2}
+              />
+            </ReactFullpage.Wrapper>
+          );
+        }}
+      />
+    </>
+  );
+});

@@ -1,0 +1,85 @@
+.liveGitElement
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 20%
+    padding-top: 3rem
+    @include responsive(1280)
+        width: 50%
+    @include responsive(1100)
+        width: 25%
+        padding-bottom: 1rem
+        padding-top: 0
+    @include responsive(phone-landscape)
+        padding-bottom: 1rem
+        padding-top: 0
+        width: 50%
+        margin-left: 2rem
+    @include responsive(670-land)
+        width: 65%
+    @include responsive(phone)
+        width: 30%
+        margin-left: 1rem
+
+    @include responsive(500)
+        margin: 0 auto
+        width: 50%
+    @include responsive(smallphone-portrait)
+        padding-top: 0
+    @include responsive(smallphone-landscape)
+        width: 35%
+    &--portfolio
+        @include responsive(1920)
+            width: 30%
+            align-items: center
+        @include responsive(1280)
+            width: 50%
+        @include responsive(1100)
+            width: 20%
+        @include responsive(phone)
+            width: 50%
+        @include responsive(phone-landscape)
+            width: 90%
+        @include responsive(670-land)
+            width: 90%
+        @include responsive(smallphone-landscape)
+            width: 35%
+
+    &__link
+        text-decoration: none
+        color: rgba(255,255,255,.9)
+        transition: all .2 ease
+        &:hover
+            color: #00fde8
+        &--live
+            @include responsive(1100)
+                order: 0
+            @include responsive(phone-landscape)
+                order: 1
+            @include responsive(670-land)
+                order: 0
+
+    &__arrowContainer
+        display: flex
+        margin-left: -8rem
+        align-items: center
+        justify-content: center
+        @include responsive(1280)
+            margin-left: 0
+        @include responsive(670-land)
+            margin-left: 2rem
+
+    &__arrowIcon
+        // @include responsive(1100)
+        @include responsive(1100)
+            transform: rotate(90deg)
+            margin-left: 0 !important
+            height: 1rem
+            order: 1
+            // margin-left: 1rem
+        @include responsive(phone-landscape)
+            transform: rotate(0deg)
+            order: 0
+        @include responsive(smallphone-landscape)
+            order: 1
+            transform: rotate(90deg)

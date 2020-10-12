@@ -53,7 +53,9 @@ export default connect(mapStateToProps)(({ lightMode }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      infoRef.current.classList.remove("contactPage__sendInfo--show");
+      if (infoRef.current) {
+        infoRef.current.classList.remove("contactPage__sendInfo--show");
+      }
       setShowInfo(false);
     }, 2500);
     if (showInfo) {

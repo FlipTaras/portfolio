@@ -32,9 +32,6 @@
         margin-top: 3px
         font-size: 2rem
         left: 300%
-        // width: 20rem
-        // left: 200%
-        // font-size: 1.2rem
         display: flex
         @include responsive(1920)
             width: 20rem
@@ -50,6 +47,8 @@
             left: 150%
         @include responsive(phone)
             width: 14rem
+        &--lightMode
+            color: rgba(0,0,0,.7)
 
         &--active
             animation-delay: .5s !important
