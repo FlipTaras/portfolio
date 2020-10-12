@@ -170,6 +170,10 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
       </svg>
     );
   } else if (icon === "redux") {
+    const reduxClassNames = classnames(
+      "icon icon__redux icon__redux--initial",
+      classNames
+    );
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +183,7 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
         y="0"
         viewBox="0 0 50 50"
         ref={reduxRef}
-        className="icon icon__redux icon__redux--initial"
+        className={reduxClassNames}
         onMouseEnter={() =>
           reduxRef.current.classList.add("icon__redux--hovered")
         }
@@ -204,6 +208,10 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
       </svg>
     );
   } else if (icon === "git") {
+    const gitClassNames = classnames(
+      "icon icon__git icon__git--initial",
+      classNames
+    );
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -213,7 +221,7 @@ function Icon({ classNames, icon, reference, style, lightMode }) {
         viewBox="0 0 114.862 114.862"
         xmlSpace="preserve"
         ref={gitRef}
-        className="icon icon__git icon__git--initial"
+        className={gitClassNames}
         onMouseEnter={() => gitRef.current.classList.add("icon__git--hovered")}
       >
         <g transform="matrix(1.25 0 0 -1.25 0 114.862)">

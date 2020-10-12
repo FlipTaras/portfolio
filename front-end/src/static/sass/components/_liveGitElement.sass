@@ -45,6 +45,9 @@
         @include responsive(smallphone-landscape)
             width: 35%
 
+    &__linksContainer
+        display: flex
+        align-items: center
     &__link
         text-decoration: none
         color: rgba(255,255,255,.9)
@@ -70,16 +73,13 @@
             margin-left: 2rem
 
     &__arrowIcon
-        // @include responsive(1100)
         @include responsive(1100)
             transform: rotate(90deg)
             margin-left: 0 !important
             height: 1rem
             order: 1
-            // margin-left: 1rem
         @include responsive(phone-landscape)
             transform: rotate(0deg)
             order: 0
         @include responsive(smallphone-landscape)
             order: 1
-            transform: rotate(90deg)

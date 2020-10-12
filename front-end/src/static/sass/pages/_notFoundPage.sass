@@ -1,0 +1,44 @@
+.notFoundPage
+    height: 100vh
+    &__container
+        margin: 0 auto
+        &--blured
+            filter: blur(5px)
+        @include responsive(900)
+            width: 60%
+            margin-left: auto
+            margin-right: 2rem
+        @include responsive(phone-landscape)
+            margin: 0 auto
+        @include responsive(414-portrait)
+            margin: 0 auto
+
+    &__innerContainer
+        flex-direction: column
+        align-items: unset
+        width: 100%
+        height: 100vh
+    &__title
+        @include responsive(900)
+            font-size: 5rem
+        @include responsive(phone)
+            font-size: 3rem
+
+    &__message
+        font-size: 2.5rem
+        margin-top: 1rem
+        color: #ec3a58
+        opacity: 0
+        &--lightMode
+            color: rgba(0,0,0,.8)
+        @include responsive(900)
+            font-size: 2.3rem
+        @include responsive(phone)
+            font-size: 2rem
+        @include responsive(414-portrait)
+            font-size: 1.8rem
+        &--1
+            animation: opacityTranslateYShow 1s 2s ease forwards
+
+        &--2
+            animation: opacityTranslateYShow 1s 2.5s ease forwards

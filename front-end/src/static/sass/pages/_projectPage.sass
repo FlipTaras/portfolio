@@ -11,7 +11,6 @@
         margin: 0 auto
         @include responsive(phone-landscape)
             width: 95%
-            // padding-bottom: 5rem
         @include responsive(670-land)
     &__innerContainer
         justify-content: space-between
@@ -46,6 +45,11 @@
         @include responsive(phone)
             height: 25rem
             margin-left: 4rem
+        @include responsive(smallphone-landscape)
+            height: 23rem
+            width: 50%
+            margin-left: 0
+
         @include responsive(550)
             margin-left: -1rem
         @include responsive(500)
@@ -83,7 +87,7 @@
                 height: 30rem
                 margin-left: 0
             @include responsive(smallphone-landscape)
-                height: 25rem
+                height: 19rem
             @include responsive(550)
                 margin-left: -2rem
             @include responsive(500)
@@ -136,6 +140,8 @@
             margin: 0
         @include responsive(phone)
             font-size: 2rem
+        @include responsive(smallphone-landscape)
+            margin-bottom: 1rem
         @include responsive(500)
             text-align: center
             margin-bottom: 2rem
@@ -178,7 +184,9 @@
         @include responsive(375-portrait)
             font-size: 1rem
         @include responsive(smallphone-landscape)
-            width: 100%
+            width: 50%
+            font-size: 1rem
+            margin-top: 0
 
         &--portfolio
             width: 40%
@@ -194,4 +202,4 @@
             @include responsive(670-land)
                 width: 40%
             @include responsive(smallphone-landscape)
-                width: 100%
+                font-size: 1.1rem

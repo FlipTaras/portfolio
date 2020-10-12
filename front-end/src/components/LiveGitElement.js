@@ -3,7 +3,6 @@ import Icon from "./Icon";
 import classnames from "classnames";
 
 export default ({ gitLink, liveLink, customGitLiveClassNames }) => {
-  console.log(customGitLiveClassNames);
   const liveGitElementClassNames = classnames(
     "liveGitElement",
     customGitLiveClassNames && customGitLiveClassNames
@@ -21,12 +20,12 @@ export default ({ gitLink, liveLink, customGitLiveClassNames }) => {
           Live
         </a>
       </div>
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div className="liveGitElement__linksContainer">
         <a
           rel="noopener noreferrer"
           target="_blank"
-          style={{ marginBottom: 0, marginRight: "1rem" }}
-          className="navbar__link"
+          style={{ marginBottom: "0", marginRight: "1rem" }}
+          className="navbar__link navbar__link--git"
           href={gitLink}
         >
           <i className="fab fa-github "></i>

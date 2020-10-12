@@ -12,7 +12,6 @@ export default connect(
   mapActionToProps
 )(({ setPageIndex }) => {
   const [active, setActive] = useState("tesla");
-  // const [dark, setDark] = useState(true);
   const ButtonElements = [
     {
       link: "#tesla",
@@ -34,9 +33,6 @@ export default connect(
     },
   ];
 
-  /* ClassNames for Elements */
-  // const elementClassNamesColor = classnames("fullpage__element");
-
   /* Change the active class when user changing the section */
   const darkAndActiveCheck = useCallback(() => {
     const index = document
@@ -54,6 +50,7 @@ export default connect(
       window.setTimeout(() => {
         darkAndActiveCheck();
       }, 200);
+
     /* For scroll navigation */
     window.addEventListener("wheel", darkAndActiveCheck);
 
@@ -84,7 +81,6 @@ export default connect(
           <li
             onClick={() => clickHandler(index + 1, el)}
             key={index}
-            // className={classnames(el.className, elementClassNamesColor)}
             className={el.className}
           >
             <a href={el.link} className="fullpage__link">

@@ -42,7 +42,6 @@ export default connect(
       liveLink,
       customGitLiveClassNames,
     }) => {
-      console.log(customGitLiveClassNames);
       const paragraphClassNames = classnames(
         "paragraphComponent",
         lightMode && "paragraphComponent--lightMode",
@@ -67,6 +66,7 @@ export default connect(
               push(to);
             }, 1200);
           };
+
           if (el.text.includes("link1") || el.text.includes("link2")) {
             const splitFirst = el.text.split("link1");
             if (el.text.includes("link2")) {
@@ -119,7 +119,7 @@ export default connect(
       ]);
       return (
         <>
-          <p className={paragraphClassNames}>
+          <div className={paragraphClassNames}>
             {showLiveGit && width <= 1100 && (
               <LiveGitElement
                 customGitLiveClassNames={customGitLiveClassNames}
@@ -141,7 +141,7 @@ export default connect(
                 liveLink={liveLink}
               />
             )}
-          </p>
+          </div>
         </>
       );
     }

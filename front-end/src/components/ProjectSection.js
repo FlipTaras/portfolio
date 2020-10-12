@@ -64,7 +64,6 @@ export default connect(
             >
               {title}
             </h1>
-            {/* {loaded && ( */}
             <a
               rel="noopener noreferrer"
               target="_blank"

@@ -52,7 +52,6 @@ export default connect(
           </div>
         </InnerContainer>
       </Container>
-
       <LineElement />
     </Section>
   );

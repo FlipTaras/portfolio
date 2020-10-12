@@ -10,11 +10,10 @@ import Container from "../LayoutComponents/Container";
 import InnerContainer from "../LayoutComponents/InnerContainer";
 
 const mapStateToProps = (state) => ({
-  loading: state.page.loading,
   lightMode: state.page.lightMode,
 });
 
-export default connect(mapStateToProps)(({ loading, lightMode }) => {
+export default connect(mapStateToProps)(({ lightMode }) => {
   const [touchDevice, setTouchDevice] = useState(null);
 
   /* Check the touch screen device */

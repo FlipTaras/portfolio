@@ -11,6 +11,7 @@ import classnames from "classnames";
 import Hamburger from "hamburger-react";
 import ProjectsPage from "./pages/ProjectsPage";
 import Backdrop from "./components/Backdrop";
+import NotFoundPage from "./pages/NotFoundPage";
 
 import {
   setWidth,
@@ -62,6 +63,7 @@ function App({ toggleSideBar, lightMode, activeSideBar, setWidth }) {
         <Route path="/contact" component={ContactPage} />
         <Route path="/skills" component={SkillsPage} />
         <Route path="/projects" component={ProjectsPage} />
+        <Route path="" component={NotFoundPage} />
       </Switch>
     </div>
   );

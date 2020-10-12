@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 const mapStateToProps = (state) => ({
   lightMode: state.page.lightMode,
 });
+
 function Icon({ lightMode }) {
   const lineClassNames = classnames(
     "lineElement",

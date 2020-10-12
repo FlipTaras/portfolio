@@ -11,7 +11,7 @@ import {
 import Image from "../static/images/logo.png";
 import classnames from "classnames";
 import { Transition } from "react-transition-group";
-import Icon from "./Icon";
+import NavBarElement from "./NavBarElement";
 
 /* Animation Settings */
 const defaultStyle = {
@@ -44,17 +44,10 @@ const Navbar = ({
   sidebar,
   activeSideBar,
   setSideBar,
-  navInfoElements,
   setNavInfoElements,
   width,
-  lightMode,
 }) => {
   const navbarClassNames = classnames(sidebar ? "sidebar" : "navbar");
-  const infoElementsClassNames = classnames(
-    "navbar__infoTextContainer",
-    activeSideBar && "navbar__infoTextContainer--active",
-    lightMode && "navbar__infoTextContainer--lightMode"
-  );
 
   /* Set active nav Element UI */
   useEffect(() => {
@@ -85,6 +78,7 @@ const Navbar = ({
       push(to);
     }, 1200);
   };
+
   /* Set infoElemet */
   useEffect(() => {
     if (activeSideBar) {
@@ -116,72 +110,38 @@ const Navbar = ({
               </Link>
             </div>
             <div className="navbar__linksContainer">
-              <Link
-                className="navbar__element"
-                onClick={delayRedirect}
-                to={{ pathname: "/about" }}
-              >
-                {navInfoElements && (
-                  <div
-                    className={`${infoElementsClassNames} navbar__infoTextContainer--about`}
-                  >
-                    <Icon icon="arrow-straight" />
-                    <h1 data-link="/about">Learn about me</h1>
-                  </div>
-                )}
-
-                <i id="about" className="far fa-user navbar__icon"></i>
-                <span className="navbar__text">About</span>
-              </Link>
-
-              <Link
-                className="navbar__element"
-                onClick={delayRedirect}
-                to={{ pathname: "/skills" }}
-              >
-                {navInfoElements && (
-                  <div
-                    className={`${infoElementsClassNames} navbar__infoTextContainer--skills`}
-                  >
-                    <Icon icon="arrow-straight" />
-                    <h1 data-link="/skills">My skills</h1>
-                  </div>
-                )}
-                <i id="skills" className="far fa-lightbulb navbar__icon"></i>
-                <span className="navbar__text">Skills</span>
-              </Link>
-              <Link
-                className="navbar__element"
-                onClick={delayRedirect}
-                to={{ pathname: "/projects" }}
-              >
-                {navInfoElements && (
-                  <div
-                    className={`${infoElementsClassNames} navbar__infoTextContainer--projects`}
-                  >
-                    <Icon icon="arrow-straight" />
-                    <h1 data-link="/projects">My projects</h1>
-                  </div>
-                )}
-                <i id="projects" className="far fa-eye navbar__icon"></i>
-                <span className="navbar__text">Projects</span>
-              </Link>
-              <Link
-                className="navbar__element"
-                onClick={delayRedirect}
-                to={{ pathname: "/contact" }}
-              >
-                {navInfoElements && (
-                  <div
-                    className={`${infoElementsClassNames} navbar__infoTextContainer--contact`}
-                  >
-                    <Icon icon="arrow-straight" />
-                    <h1 data-link="/contact">Contact me</h1>
-                  </div>
-                )}
-                <i id="contact" className="far fa-envelope navbar__icon"></i>
-                <span className="navbar__text">Contact</span>
-              </Link>
+              <NavBarElement
+                pathname="/about"
+                linkText="Learn about me"
+                linkTitle="About"
+                id="about"
+                linkIcon="far fa-user navbar__icon"
+                delayRedirect={delayRedirect}
+              />
+              <NavBarElement
+                pathname="/skills"
+                linkText="My Skills"
+                linkTitle="Skills"
+                id="skills"
+                linkIcon="far fa-lightbulb navbar__icon"
+                delayRedirect={delayRedirect}
+              />
+              <NavBarElement
+                pathname="/projects"
+                linkText="My Projects"
+                linkTitle="Projects"
+                id="projects"
+                linkIcon="far fa-eye navbar__icon"
+                delayRedirect={delayRedirect}
+              />
+              <NavBarElement
+                pathname="/contact"
+                linkText="Contact Me"
+                linkTitle="Contact"
+                id="contact"
+                linkIcon="far fa-envelope navbar__icon"
+                delayRedirect={delayRedirect}
+              />
             </div>
             <div className="navbar__links">
               <a

@@ -25,6 +25,7 @@ export default () => {
       text: `My goal is to turn my hobby into a career. Check out examples of my work link1. Reach out to me link2, if you like what I make`,
     },
   ];
+
   return (
     <Section classNames="aboutPage__section">
       <InnerContainer classNames="aboutPage__innerContainer">
