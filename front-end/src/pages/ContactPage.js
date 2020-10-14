@@ -173,7 +173,7 @@ export default connect(mapStateToProps)(({ lightMode }) => {
             title="Contact"
             tag="h1"
             classNames="contactPage__title"
-            titleWidth="45rem"
+            titleWidth="48rem"
             smallTitleWidth="19rem"
           />
 

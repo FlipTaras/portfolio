@@ -7,6 +7,7 @@ import {
   setActiveNav,
   setNavInfoElements,
   setSideBar,
+  toggleLightMode,
 } from "../static/store/actions";
 import LiveGitElement from "./LiveGitElement";
 
@@ -19,6 +20,7 @@ const mapActionToProps = {
   setActiveNav,
   setNavInfoElements,
   setSideBar,
+  toggleLightMode,
 };
 
 export default connect(
@@ -41,6 +43,7 @@ export default connect(
       gitLink,
       liveLink,
       customGitLiveClassNames,
+      toggleLightMode,
     }) => {
       const paragraphClassNames = classnames(
         "paragraphComponent",
@@ -57,9 +60,13 @@ export default connect(
         return paragraphText.map((el, index) => {
           const delayRedirect = (e) => {
             const to = e.target.getAttribute("href");
+
             e.preventDefault();
             setLoading(true);
             setTimeout(() => {
+              if (to === "/projects") {
+                if (lightMode) toggleLightMode(false);
+              }
               setNavInfoElements(false);
               setSideBar(false);
               setLoading(false);
@@ -116,6 +123,7 @@ export default connect(
         lightMode,
         setNavInfoElements,
         setSideBar,
+        toggleLightMode,
       ]);
       return (
         <>

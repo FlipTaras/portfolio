@@ -7,6 +7,7 @@ import {
   toggleSideBar,
   setSideBar,
   setNavInfoElements,
+  toggleLightMode,
 } from "../static/store/actions";
 import Image from "../static/images/logo.png";
 import classnames from "classnames";
@@ -46,6 +47,8 @@ const Navbar = ({
   setSideBar,
   setNavInfoElements,
   width,
+  toggleLightMode,
+  lightMode,
 }) => {
   const navbarClassNames = classnames(sidebar ? "sidebar" : "navbar");
 
@@ -69,9 +72,13 @@ const Navbar = ({
     if (!to) {
       to = e.target.dataset.link;
     }
+
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
+      if (to === "/projects") {
+        if (lightMode) toggleLightMode(false);
+      }
       setNavInfoElements(false);
       setLoading(false);
       setSideBar(false);
@@ -181,5 +188,6 @@ const mapActionToProps = {
   toggleSideBar,
   setSideBar,
   setNavInfoElements,
+  toggleLightMode,
 };
 export default connect(mapStateToProps, mapActionToProps)(withRouter(Navbar));

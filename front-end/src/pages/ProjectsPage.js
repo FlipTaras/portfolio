@@ -37,12 +37,6 @@ export default connect(
   /* Sections Ref for mobile animation */
 
   useEffect(() => {
-    if (lightMode) {
-      toggleLightMode();
-    }
-  }, [toggleLightMode, lightMode]);
-
-  useEffect(() => {
     if (loaded && width > 900) {
       setTimeout(() => {
         if (videoRef.current) {

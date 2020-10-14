@@ -71,7 +71,7 @@ export default connect(mapStateToProps)(({ lightMode }) => {
           <TitleComponent
             title="Skills"
             tag="h1"
-            titleWidth="38rem"
+            titleWidth="41rem"
             smallTitleWidth="14rem"
           />
           <ParagraphComponent paragraphText={paragraphText} />
