@@ -58,13 +58,10 @@ export default connect(
 
   const paragraphTextTesla = [
     {
-      text: `Fully responsive Tesla clone web application. Based on original design of tesla.com. Main page and product page is implemented (Model S). Navigation is achieved with a usage of React Router.`,
+      text: `Fully responsive Tesla clone web application. Based on original design of tesla.com. Main page and ModelS pages are finished. Navigation is achieved with a usage of React Router.`,
     },
     {
-      text: `React with hooks is used for the front end of the application. Redux is used  for global state management. Sass for the styling. FullPage.js package is used for the layout on Product page.`,
-    },
-    {
-      text: `Features to be implemented: Authentication functionality, using Node.js and MongoDB. Payment functionality, using Stripe.`,
+      text: `React with hooks is used for the front end of the application. Redux is used for global state management. Sass for the styling. FullPage.js package is used for the layout on Product page.`,
     },
   ];
 
@@ -79,7 +76,7 @@ export default connect(
     },
     {
       text:
-        "Server side of the app is made using Node.js and Express.js. MongoDB is used as a primary database. Along with axios.js on client side to manage API requests.",
+        "Server side of the app is made using Node.js and Express.js. MongoDB is used as a database.",
     },
   ];
 
